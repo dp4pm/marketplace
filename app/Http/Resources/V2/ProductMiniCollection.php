@@ -13,6 +13,7 @@ class ProductMiniCollection extends ResourceCollection
                 return [
                     'id' => $data->id,
                     'name' => $data->getTranslation('name'),
+                    'slug' => $data->slug,
                     'thumbnail_image' => api_asset($data->thumbnail_img),
                     'has_discount' => home_base_price($data, false) != home_discounted_base_price($data, false) ,
                     'stroked_price' => home_base_price($data),
