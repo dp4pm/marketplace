@@ -1,3 +1,4 @@
+# Marketplace
 
 - [About](#about-dpg-marketplace)
 - [Features](#features)
@@ -7,12 +8,14 @@
     - [Ubuntu Server Setup](#update-os-dependency)
 - [Install Project using Git](#install-project-using-git)
 
-# About Marketplace
+# About
 A complete solution for E-commerce Business (Multi-vendor e-commerce platform) with exclusive features.
 
 
 # Features
-
+- [Marketplace Features](docs/marketplace-features.md)
+- [Merchant Features](docs/merchant-features.md)
+- [Admin Features](docs/admin-features.md)
 
 
 # Requirements
