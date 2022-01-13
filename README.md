@@ -21,7 +21,7 @@ A complete solution for E-commerce Business (Multi-vendor e-commerce platform) w
 # Requirements
 - Ubuntu Server
 - PHP 7.4
-- mysqli
+- mysql
 - Mariadb Server
 - Laravel 8
 
@@ -116,16 +116,16 @@ sudo systemctl restart apache2
     php artisan passport:install --force
 ```
 
-### Users
+### Default Users
 
-Login as an Admin
-admin@admin.com
-123456
+#Login as an Admin
+Username: admin@admin.com
+Password: 123456
 
-Login as a Customer
-customer@example.com
-123456
+#Login as a Customer
+Username: customer@example.com
+Password: 123456
 
-Login as a Seller
-seller@example.com
-123456
+#Login as a Seller
+Username: seller@example.com
+Password: 123456
