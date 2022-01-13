@@ -8,7 +8,7 @@
 - [Install Project using Git](#install-project-using-git)
 
 # About Marketplace
-A complete solution for E-commerce Business with exclusive features & super responsive layout
+A complete solution for E-commerce Business (Multi-vendor e-commerce platform) with exclusive features.
 
 
 # Features
