@@ -1,3 +1,4 @@
+# Marketplace
 
 - [About](#about-dpg-marketplace)
 - [Features](#features)
@@ -7,18 +8,20 @@
     - [Ubuntu Server Setup](#update-os-dependency)
 - [Install Project using Git](#install-project-using-git)
 
-# About DPG Marketplace
-A complete solution for E-commerce Business with exclusive features & super responsive layout
+# About
+A complete solution for E-commerce Business (Multi-vendor e-commerce platform) with exclusive features.
 
 
 # Features
-
+- [Marketplace Features](docs/marketplace-features.md)
+- [Merchant Features](docs/merchant-features.md)
+- [Admin Features](docs/admin-features.md)
 
 
 # Requirements
 - Ubuntu Server
 - PHP 7.4
-- mysqli
+- mysql
 - Mariadb Server
 - Laravel 8
 
@@ -104,7 +107,7 @@ sudo systemctl restart apache2
 ## Install Project using Git
 
 ```shell
-    git clone https://github.com/parallaxlogicdevelopment/dpg-marketplace.git
+    git clone https://github.com/dp4pm/marketplace.git
     cp .env.example .env
     import database (find DB in database folder)
     composer update
@@ -113,22 +116,16 @@ sudo systemctl restart apache2
     php artisan passport:install --force
 ```
 
-### Users
+### Default Users
 
-Login as an Admin
-admin@admin.com
-123456
+#Login as an Admin
+Username: admin@admin.com
+Password: 123456
 
-Login as a Customer
-customer@example.com
-123456
+#Login as a Customer
+Username: customer@example.com
+Password: 123456
 
-Login as a Seller
-seller@example.com
-123456
-
-
-
-## Developed By
-
-[Parallax Logic Infotech](https://parallaxlogic.com/)
+#Login as a Seller
+Username: seller@example.com
+Password: 123456
