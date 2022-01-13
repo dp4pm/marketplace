@@ -7,7 +7,7 @@
     - [Ubuntu Server Setup](#update-os-dependency)
 - [Install Project using Git](#install-project-using-git)
 
-# About DPG Marketplace
+# About Marketplace
 A complete solution for E-commerce Business with exclusive features & super responsive layout
 
 
@@ -126,9 +126,3 @@ customer@example.com
 Login as a Seller
 seller@example.com
 123456
-
-
-
-## Developed By
-
-[Parallax Logic Infotech](https://parallaxlogic.com/)
