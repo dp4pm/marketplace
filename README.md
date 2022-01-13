@@ -113,6 +113,21 @@ sudo systemctl restart apache2
     php artisan passport:install --force
 ```
 
+### Users
+
+Login as an Admin
+admin@admin.com
+123456
+
+Login as a Customer
+customer@example.com
+123456
+
+Login as a Seller
+seller@example.com
+123456
+
+
 
 ## Developed By
 
