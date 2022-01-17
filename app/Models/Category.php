@@ -46,4 +46,14 @@ class Category extends Model
     {
         return $this->belongsToMany(Attribute::class);
     }
+
+    public function get_banner()
+    {
+        return $this->belongsTo(Upload::class,'banner')->select('id','file_name');
+    }
+
+    public function get_icon()
+    {
+        return $this->belongsTo(Upload::class,'icon')->select('id','file_name');
+    }
 }

@@ -25,6 +25,8 @@ use Illuminate\Auth\Events\PasswordReset;
 use Cache;
 
 
+
+
 class HomeController extends Controller
 {
     /**

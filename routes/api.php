@@ -49,6 +49,7 @@ Route::group(['prefix' => 'v2', 'middleware' => ['app_language']], function() {
 
     Route::apiResource('business-settings', 'Api\V2\BusinessSettingController')->only('index');
 
+    Route::get('categories/top-cats', 'Api\V2\CategoryController@top_cats');
     Route::get('categories/featured', 'Api\V2\CategoryController@featured');
     Route::get('categories/home', 'Api\V2\CategoryController@home');
     Route::get('categories/top', 'Api\V2\CategoryController@top');

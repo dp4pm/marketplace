@@ -41,4 +41,12 @@ class CategoryController extends Controller
             return new CategoryCollection(Category::whereIn('id', json_decode(get_setting('home_categories')))->limit(20)->get());
         });
     }
+
+    public function top_cats()
+    {   
+        $top10_categories = json_decode(get_setting('top10_categories'));
+        $data = Category::with('get_banner')->whereIn('id', $top10_categories)->select('id','name','banner','slug')->get();
+        return response()->json($data,200,[],JSON_PRETTY_PRINT);
+        //return $data = json_decode($categories);
+    }
 }
