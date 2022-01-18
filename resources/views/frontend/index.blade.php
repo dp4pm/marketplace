@@ -188,11 +188,8 @@
         </section>
     @endif
 
-    {{-- Best Selling  --}}
-    {{--    <div id="section_best_selling">--}}
-    {{--    <div id="section_best_selling">--}}
-
-    {{--    </div>--}}
+    <!-- -- Best Selling  -- -->
+    <div id="section_best_selling"></div>
 
     <!-- Auction Product -->
     @if(addon_is_activated('auction'))
@@ -363,34 +360,36 @@
                                 <div class="single-top-10-scroll">
                                     <div class="row gutters-5">
                                         @php $top10_brands = json_decode(get_setting('top10_brands')); @endphp
-                                        @foreach ($top10_brands as $key => $value)
-                                            @php $brand = \App\Models\Brand::find($value); @endphp
-                                            @if ($brand != null)
-                                                <div class="col-sm-12">
-                                                    <a href="{{ route('products.brand', $brand->slug) }}"
-                                                       class="bg-white d-block text-reset p-2 rounded hov-shadow-md mb-2">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="top-10-img text-center border rounded">
-                                                                <img
-                                                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
-                                                                    data-src="{{ uploaded_asset($brand->logo) }}"
-                                                                    alt="{{ $brand->getTranslation('name') }}"
-                                                                    class="img lazyload rounded"
-                                                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
-                                                                >
+                                        
+                                            @php $brands = \App\Models\Brand::whereIn('id',$top10_brands)->get(); @endphp
+                                            @if ($brands != null)
+                                                @foreach ($brands as $key => $brand)
+                                                    <div class="col-sm-12">
+                                                        <a href="{{ route('products.brand', $brand->slug) }}"
+                                                        class="bg-white d-block text-reset p-2 rounded hov-shadow-md mb-2">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="top-10-img text-center border rounded">
+                                                                    <img
+                                                                        src="{{ static_asset('assets/img/placeholder.jpg') }}"
+                                                                        data-src="{{ uploaded_asset($brand->logo) }}"
+                                                                        alt="{{ $brand->getTranslation('name') }}"
+                                                                        class="img lazyload rounded"
+                                                                        onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
+                                                                    >
+                                                                </div>
+                                                                <div class="top-10-text">
+                                                                    <div
+                                                                        class="text-truncate-2 pl-3 fs-18 fw-600 text-left">{{ $brand->getTranslation('name') }}</div>
+                                                                </div>
+                                                                {{--                                                <div class="col-2 text-center">--}}
+                                                                {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
+                                                                {{--                                                </div>--}}
                                                             </div>
-                                                            <div class="top-10-text">
-                                                                <div
-                                                                    class="text-truncate-2 pl-3 fs-18 fw-600 text-left">{{ $brand->getTranslation('name') }}</div>
-                                                            </div>
-                                                            {{--                                                <div class="col-2 text-center">--}}
-                                                            {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
-                                                            {{--                                                </div>--}}
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
                                             @endif
-                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -409,34 +408,36 @@
                                 <div class="single-top-10-scroll">
                                     <div class="row gutters-5">
                                         @php $top10_categories = json_decode(get_setting('top10_categories')); @endphp
-                                        @foreach ($top10_categories as $key => $value)
-                                            @php $category = \App\Models\Category::find($value); @endphp
-                                            @if ($category != null)
-                                                <div class="col-sm-12">
-                                                    <a href="{{ route('products.category', $category->slug) }}"
-                                                       class="bg-white d-block text-reset rounded p-2 hov-shadow-md mb-2">
-                                                        <div class="d-flex align-items-center">
-                                                            <div class="top-10-img text-center border rounded">
-                                                                <img
-                                                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
-                                                                    data-src="{{ uploaded_asset($category->banner) }}"
-                                                                    alt="{{ $category->getTranslation('name') }}"
-                                                                    class="img lazyload rounded"
-                                                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
-                                                                >
+                                        
+                                            @php $categories = \App\Models\Category::whereIn('id',$top10_categories)->get(); @endphp
+                                            @if ($categories != null)
+                                                @foreach ($categories as $key => $category)
+                                                    <div class="col-sm-12">
+                                                        <a href="{{ route('products.category', $category->slug) }}"
+                                                        class="bg-white d-block text-reset rounded p-2 hov-shadow-md mb-2">
+                                                            <div class="d-flex align-items-center">
+                                                                <div class="top-10-img text-center border rounded">
+                                                                    <img
+                                                                        src="{{ static_asset('assets/img/placeholder.jpg') }}"
+                                                                        data-src="{{ uploaded_asset($category->banner) }}"
+                                                                        alt="{{ $category->getTranslation('name') }}"
+                                                                        class="img lazyload rounded"
+                                                                        onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
+                                                                    >
+                                                                </div>
+                                                                <div class="top-10-text">
+                                                                    <div
+                                                                        class="text-truncat-2 pl-3 fs-18 fw-600 text-left">{{ $category->getTranslation('name') }}</div>
+                                                                </div>
+                                                                {{--                                                <div class="col-2 text-center">--}}
+                                                                {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
+                                                                {{--                                                </div>--}}
                                                             </div>
-                                                            <div class="top-10-text">
-                                                                <div
-                                                                    class="text-truncat-2 pl-3 fs-18 fw-600 text-left">{{ $category->getTranslation('name') }}</div>
-                                                            </div>
-                                                            {{--                                                <div class="col-2 text-center">--}}
-                                                            {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
-                                                            {{--                                                </div>--}}
-                                                        </div>
-                                                    </a>
-                                                </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
                                             @endif
-                                        @endforeach
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -513,7 +514,7 @@
         </section>
     @endif
 
-    {{-- Best Seller --}}
+    <!-- Best Seller -->
     <div id="section_best_sellers">
 
     </div>
@@ -526,10 +527,12 @@
                 $('#section_featured').html(data);
                 PLX.plugins.slickCarousel();
             });
-            $.post('{{ route('home.section.best_selling') }}', {_token: '{{ csrf_token() }}'}, function (data) {
-                $('#section_best_selling').html(data);
-                PLX.plugins.slickCarousel();
-            });
+
+            // $.post('{{ route('home.section.best_selling') }}', {_token: '{{ csrf_token() }}'}, function (data) {
+            //     $('#section_best_selling').html(data);
+            //     PLX.plugins.slickCarousel();
+            // });
+
             $.post('{{ route('home.section.auction_products') }}', {_token: '{{ csrf_token() }}'}, function (data) {
                 $('#auction_products').html(data);
                 PLX.plugins.slickCarousel();
