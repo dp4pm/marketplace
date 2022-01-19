@@ -2,7 +2,6 @@
 <head>
     <link rel="stylesheet" href="{{ static_asset('assests/css/styles.css') }}">
     <script src="https://id.dpg.gov.bd/auth/js/keycloak.js"></script>
-    {{--    <script src="{{ static_asset('assets/js/myLogic.js') }}"></script>--}}
     <style>
         .wrap {
             position: absolute;
@@ -94,7 +93,7 @@
         <div class="wrap">
             <div class="loading">
                 <div class="bounceball"></div>
-                <div class="text">Please wait We are getting access from </div> <span style="font-size: 40px"><b>identity server</b></span>
+                <div class="text">Please wait we are getting access from </div> <span style="font-size: 40px"><b>identity server</b></span>
             </div>
         </div>
     </div>
@@ -130,7 +129,7 @@
     }
 
     function constructTableRows(keycloakToken) {
-        console.log(keycloakToken);
+        // console.log(keycloakToken);
         // document.getElementById('row-username').innerHTML = keycloakToken.preferred_username;
         // document.getElementById('row-firstName').innerHTML = keycloakToken.given_name;
         // document.getElementById('row-lastName').innerHTML = keycloakToken.family_name;
@@ -152,7 +151,7 @@
     }
 
     var logout = function () {
-        keycloak.logout({"redirectUri": "http://localhost:9091/logout.html"});
+        keycloak.logout({"redirectUri": '{{getBaseURL()}}' + "logout-identity-server"});
     }
 </script>
 
