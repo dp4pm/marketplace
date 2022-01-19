@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Auth;
 use Hash;
@@ -39,7 +40,7 @@ class HomeController extends Controller
         });
 
         $todays_deal_products = Cache::rememberForever('todays_deal_products', function () {
-            return filter_products(Product::where('published', 1)->where('todays_deal', '1'))->get();            
+            return filter_products(Product::where('published', 1)->where('todays_deal', '1'))->get();
         });
 
         return view('frontend.index', compact('featured_categories', 'todays_deal_products'));
@@ -52,6 +53,68 @@ class HomeController extends Controller
         }
         return view('frontend.user_login');
     }
+
+    public function keycloakLogin()
+    {
+        if (Auth::check()) {
+            return redirect()->route('home');
+        }
+        return view('frontend.user_keycloak_login');
+    }
+
+    public function getAccess(Request $request)
+    {
+        $responseData = array();
+
+        $user = User::where('email', $request->input('email'))->first();
+        if (!$user) {
+            $user = new User();
+
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            $user->email_verified_at = date('Y-m-d H:m:s');
+            $user->password = bcrypt($request->password);
+            $verification_code = rand(100000, 999999);
+            $user->verification_code = $verification_code;
+            $user->user_type = "customer";
+            $user->save();
+
+            /*SAVE AS CUSTOMER*/
+            $customer = new Customer();
+            $customer->user_id = $user->id;
+            $customer->save();
+
+
+            $responseData['message'] = 'Registration Successful. Please verify and log in to your account.';
+            $tokenResult = $user->createToken('Personal Access Token');
+            $responseData['verification_code'] = $verification_code;
+            $responseData['user'] = [
+                'id' => $user->id,
+                'type' => $user->user_type,
+                'name' => $user->name,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+                'avatar_original' => api_asset($user->avatar_original),
+                'phone' => $user->phone
+            ];
+            return response()->json($responseData, 201);
+
+        } else {
+            /* ATTEMPT TO LOGIN*/
+            $verification_code = rand(100000, 999999);
+            $user->verification_code = $verification_code;
+            $user->save();
+
+            $responseData['verification_code'] = $verification_code;
+            $responseData['user'] = $user;
+            $responseData['message'] = 'Login Successful..';
+            return response()->json($responseData, 201);
+        }
+        $responseData['message'] = 'Sorry you are not authorized in our application.';
+        return response()->json($responseData, 201);
+
+    }
+
 
     public function registration(Request $request)
     {
@@ -90,7 +153,7 @@ class HomeController extends Controller
         elseif($request->get('email') != null){
             $user = User::whereIn('user_type', ['customer', 'seller'])->where('email', $request->email)->first();
         }
-        
+
         if($user != null){
             if(Hash::check($request->password, $user->password)){
                 if($request->has('remember')){
@@ -199,7 +262,7 @@ class HomeController extends Controller
         if($request->new_password != null && ($request->new_password == $request->confirm_password)){
             $user->password = Hash::make($request->new_password);
         }
-        
+
         $user->avatar_original = $request->photo;
 
         $seller = $user->seller;

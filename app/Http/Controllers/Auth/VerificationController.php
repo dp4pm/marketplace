@@ -90,9 +90,22 @@ class VerificationController extends Controller
             flash(translate('Your email has been verified successfully'))->success();
         }
         else {
-            flash(translate('Sorry, we could not verifiy you. Please try again'))->error();
+            flash(translate('Sorry, we could not verify you. Please try again'))->error();
         }
 
+        return redirect()->route('dashboard');
+    }
+
+    public function verification_identity_server_user($code){
+        $user = User::where('verification_code', $code)->first();
+        if($user != null){
+            $user->email_verified_at = Carbon::now();
+            $user->save();
+            auth()->login($user, true);
+            flash(translate('Your are successfully logged in our system using identity server.'))->success();
+        } else {
+            flash(translate('Sorry, we could not verify you. Please try again'))->error();
+        }
         return redirect()->route('dashboard');
     }
 }
