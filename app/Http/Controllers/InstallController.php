@@ -9,7 +9,7 @@ use Hash;
 use App\Models\BusinessSetting;
 use App\Models\User;
 use App\Models\Product;
-use CoreComponentRepository;
+
 
 class InstallController extends Controller
 {

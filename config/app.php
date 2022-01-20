@@ -173,7 +173,6 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Laracon21\Timezones\TimezonesServiceProvider::class,
         niklasravnsborg\LaravelPdf\PdfServiceProvider::class,
-        MehediIitdu\CoreComponentRepository\CoreComponentRepositoryServiceProvider::class,
         Laracon21\Combinations\CombinationsServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         \Laravel\Passport\PassportServiceProvider::class,

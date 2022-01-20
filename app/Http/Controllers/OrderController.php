@@ -27,7 +27,7 @@ use DB;
 use Mail;
 use App\Mail\InvoiceEmailManager;
 use App\Utility\NotificationUtility;
-use CoreComponentRepository;
+
 use App\Utility\SmsUtility;
 
 class OrderController extends Controller

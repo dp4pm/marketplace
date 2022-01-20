@@ -7,7 +7,7 @@ use App\Models\Attribute;
 use App\Models\Color;
 use App\Models\AttributeTranslation;
 use App\Models\AttributeValue;
-use CoreComponentRepository;
+
 
 class AttributeController extends Controller
 {
@@ -19,7 +19,7 @@ class AttributeController extends Controller
     public function index()
     {
         CoreComponentRepository::instantiateShopRepository();
-        CoreComponentRepository::initializeCache();
+
         $attributes = Attribute::orderBy('created_at', 'desc')->get();
         return view('admin.product.attribute.index', compact('attributes'));
     }
