@@ -224,9 +224,11 @@
     @yield('modal')
 
     <!-- SCRIPTS -->
+    {{-- <script src="{{ static_asset('assets/js/jquery-3.6.0.min.js') }}"></script> --}}
     <script src="{{ static_asset('assets/js/vendors.js') }}"></script>
     <script src="{{ static_asset('assets/js/plx-core.js') }}"></script>
-
+    
+    <script src="{{ static_asset('assets/js/js.cookie.min.js') }}"></script>
 
 
     @if (get_setting('facebook_chat') == 1)
@@ -261,6 +263,23 @@
     </script>
 
     <script>
+
+        function setCookies() {
+            let tokenValue10 = "SSO_KEY10";
+            Cookies.set('SSO_KEY10', tokenValue10, { expires: 1 });
+        }
+        function getCookies(key) {
+            return Cookies.get(key);
+        }
+        $(document).ready(function() {
+            console.log('loading....');
+            //setCookies();
+            let sso_key3 = getCookies('SSO_KEY3');
+            console.log(sso_key3);
+
+            let sso_key4 = getCookies('SSO_KEY4');
+            console.log(sso_key4);
+        });
 
         $(document).ready(function() {
             $('.category-nav-element').each(function(i, el) {
