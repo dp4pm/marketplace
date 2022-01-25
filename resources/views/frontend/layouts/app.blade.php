@@ -270,10 +270,9 @@
         $(document).ready(function() {
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
-                //console.log('keycloak login working...');
-                let sso_key3 = getCookies('SSO_KEY3');
+                let sso_key = getCookies('SSO_KEY');
                 let keycloak_route = "{{ route('user.identity-server-login') }}";
-                if(sso_key3 != undefined){
+                if(sso_key != undefined){
                     window.location.href = keycloak_route;
                 }
             }
