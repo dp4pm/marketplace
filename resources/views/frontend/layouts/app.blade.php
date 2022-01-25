@@ -263,23 +263,22 @@
     </script>
 
     <script>
-
-        function setCookies() {
-            let tokenValue10 = "SSO_KEY10";
-            Cookies.set('SSO_KEY10', tokenValue10, { expires: 1 });
-        }
+        // keycloak login code
         function getCookies(key) {
             return Cookies.get(key);
         }
         $(document).ready(function() {
-            console.log('loading....');
-            //setCookies();
-            let sso_key3 = getCookies('SSO_KEY3');
-            console.log(sso_key3);
-
-            let sso_key4 = getCookies('SSO_KEY4');
-            console.log(sso_key4);
+            let auth_check = "{{Auth::id()}}";
+            if(!auth_check){
+                //console.log('keycloak login working...');
+                let sso_key3 = getCookies('SSO_KEY3');
+                let keycloak_route = "{{ route('user.identity-server-login') }}";
+                if(sso_key3 != undefined){
+                    window.location.href = keycloak_route;
+                }
+            }
         });
+        // keycloak login code
 
         $(document).ready(function() {
             $('.category-nav-element').each(function(i, el) {
