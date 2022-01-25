@@ -267,6 +267,12 @@
         function getCookies(key) {
             return Cookies.get(key);
         }
+
+        // remove cookies step 2
+        function removeCookies() {
+            Cookies.remove('SSO_KEY', {domain: 'dpg.gov.bd' })
+        }
+
         $(document).ready(function() {
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
@@ -276,6 +282,10 @@
                     window.location.href = keycloak_route;
                 }
             }
+
+            $('#keycloak_logout').click(function(){
+                removeCookies();
+            })
         });
         // keycloak login code
 
