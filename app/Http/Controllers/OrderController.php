@@ -27,7 +27,7 @@ use DB;
 use Mail;
 use App\Mail\InvoiceEmailManager;
 use App\Utility\NotificationUtility;
-use CoreComponentRepository;
+
 use App\Utility\SmsUtility;
 
 class OrderController extends Controller
@@ -76,7 +76,6 @@ class OrderController extends Controller
     // All Orders
     public function all_orders(Request $request)
     {
-        CoreComponentRepository::instantiateShopRepository();
 
         $date = $request->date;
         $sort_search = null;
@@ -112,7 +111,6 @@ class OrderController extends Controller
     // Inhouse Orders
     public function admin_orders(Request $request)
     {
-        CoreComponentRepository::instantiateShopRepository();
 
         $date = $request->date;
         $payment_status = null;
@@ -158,7 +156,6 @@ class OrderController extends Controller
     // Seller Orders
     public function seller_orders(Request $request)
     {
-        CoreComponentRepository::instantiateShopRepository();
 
         $date = $request->date;
         $seller_id = $request->seller_id;
