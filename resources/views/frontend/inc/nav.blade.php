@@ -121,7 +121,7 @@
                         </li>
                         @endif
                         <li class="list-inline-item mr-3 border-right border-left-0 pr-3 pl-0">
-                            <a href="{{ route('logout') }}" class="text-reset d-inline-block py-0">
+                            <a href="{{ route('logout') }}" class="text-reset d-inline-block py-0" id="keycloak_logout">
                                 <span class="d-none d-sm-block">{{ translate('Logout')}}</span>
                                 <span class="d-block d-sm-none">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">

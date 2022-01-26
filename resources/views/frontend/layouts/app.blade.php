@@ -224,9 +224,11 @@
     @yield('modal')
 
     <!-- SCRIPTS -->
+    {{-- <script src="{{ static_asset('assets/js/jquery-3.6.0.min.js') }}"></script> --}}
     <script src="{{ static_asset('assets/js/vendors.js') }}"></script>
     <script src="{{ static_asset('assets/js/plx-core.js') }}"></script>
-
+    
+    <script src="{{ static_asset('assets/js/js.cookie.min.js') }}"></script>
 
 
     @if (get_setting('facebook_chat') == 1)
@@ -261,6 +263,31 @@
     </script>
 
     <script>
+        // keycloak login code
+        function getCookies(key) {
+            return Cookies.get(key);
+        }
+
+        // remove cookies step 2
+        function removeCookies() {
+            Cookies.remove('SSO_KEY', {domain: 'dpg.gov.bd' })
+        }
+
+        $(document).ready(function() {
+            let auth_check = "{{Auth::id()}}";
+            if(!auth_check){
+                let sso_key = getCookies('SSO_KEY');
+                let keycloak_route = "{{ route('user.identity-server-login') }}";
+                if(sso_key != undefined){
+                    window.location.href = keycloak_route;
+                }
+            }
+
+            $('#keycloak_logout').click(function(){
+                removeCookies();
+            })
+        });
+        // keycloak login code
 
         $(document).ready(function() {
             $('.category-nav-element').each(function(i, el) {

@@ -389,7 +389,7 @@
                                     <ul class="list-inline text-center mb-5">
                                         @if (true /*get_setting('identity_server_login') == 1*/)
                                             <a href="{{ route('user.identity-server-login') }}" class="btn btn-info btn-sm"  style="font-size: 20px; border-radius: 10px ">
-                                                Identity Server
+                                                Login With Identity
                                             </a>
                                         @endif
                                     </ul>
