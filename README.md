@@ -13,9 +13,11 @@ A complete solution for E-commerce Business (Multi-vendor e-commerce platform) w
 
 
 # Features
-- [Marketplace Features](docs/marketplace-features.md)
-- [Merchant Features](docs/merchant-features.md)
-- [Admin Features](docs/admin-features.md)
+- [Merchant Features](docs//merchant/MerchantFeatures.md)
+- [Admin Features](docs/admin/AdminFeature.md)
+- [Marketing Features](docs/admin/MarketingFeature.md)
+- [Product Features](docs/admin/ProductFeature.md)
+- [Merchant Management](docs/admin/SellerFeature.md)
 
 
 # Requirements
