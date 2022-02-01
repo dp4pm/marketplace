@@ -56,6 +56,12 @@ Route::get('/users/registration', 'HomeController@registration')->name('user.reg
 //Route::post('/users/login', 'HomeController@user_login')->name('user.login.submit');
 Route::post('/users/login/cart', 'HomeController@cart_login')->name('cart.login.submit');
 
+// Identity Server Login
+Route::get('/verification-identity-server-user/{code}', 'Auth\VerificationController@verification_identity_server_user')->name('email.verification.confirmation');
+Route::get('identity-server-login', 'HomeController@keycloakLogin')->name('user.identity-server-login');
+Route::post('get-access', 'HomeController@getAccess');
+
+
 //Home Page
 Route::get('/', 'HomeController@index')->name('home');
 Route::post('/home/section/featured', 'HomeController@load_featured_section')->name('home.section.featured');

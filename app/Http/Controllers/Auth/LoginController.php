@@ -10,7 +10,6 @@ use App\Models\Customer;
 use App\Models\Cart;
 use Session;
 use Illuminate\Http\Request;
-use CoreComponentRepository;
 use Illuminate\Support\Str;
 
 class LoginController extends Controller
@@ -144,10 +143,9 @@ class LoginController extends Controller
 
             Session::forget('temp_user_id');
         }
-        
+
         if(auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'staff')
         {
-            CoreComponentRepository::instantiateShopRepository();
             return redirect()->route('admin.dashboard');
         } else {
 
@@ -188,12 +186,12 @@ class LoginController extends Controller
         else{
             $redirect_route = 'home';
         }
-        
+
         //User's Cart Delete
         if(auth()->user()){
             Cart::where('user_id', auth()->user()->id)->delete();
         }
-        
+
         $this->guard()->logout();
 
         $request->session()->invalidate();
