@@ -16,9 +16,6 @@ class FilterController extends Controller
         return Cache::remember('app.filter_categories', 86400, function () {
             return new CategoryCollection(Category::where('parent_id', 0)->get());
         });
-
-        //if you want to show featured categories
-        //return new CategoryCollection(Category::where('featured', 1)->get());
     }
 
     public function brands()

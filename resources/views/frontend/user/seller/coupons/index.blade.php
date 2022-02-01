@@ -1,26 +1,6 @@
 @extends('frontend.layouts.user_panel')
 @section('panel_content')
 
-{{--    <div class="plx-titlebar mt-2 mb-4">--}}
-{{--        <div class="row align-items-center">--}}
-{{--            <div class="col-md-6">--}}
-{{--                <h1 class="h3">{{ translate('Coupons') }}</h1>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
-{{--    <div class="row gutters-10 justify-content-center">--}}
-{{--        <div class="col-md-4 mx-auto mb-3" >--}}
-{{--            <a href="{{ route('seller.coupon.create')}}">--}}
-{{--            <div class="p-3 rounded mb-3 c-pointer text-center bg-white shadow-sm hov-shadow-lg has-transition">--}}
-{{--                <span class="size-60px rounded-circle mx-auto bg-secondary d-flex align-items-center justify-content-center mb-3">--}}
-{{--                    <i class="las la-plus la-3x text-white"></i>--}}
-{{--                </span>--}}
-{{--                <div class="fs-18 text-primary">{{ translate('Add New Coupon') }}</div>--}}
-{{--            </div>--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--    </div>--}}
     <div class="card">
         <div class="card-header py-0">
             <div class="d-flex justify-content-between align-items-center w-100">

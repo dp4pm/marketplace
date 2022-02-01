@@ -270,21 +270,27 @@
 
         // remove cookies step 2
         function removeCookies() {
-            Cookies.remove('SSO_KEY', {domain: 'dpg.gov.bd' })
+            Cookies.remove('SSO_KEY', {domain: "{{env('DOMAIN_NAME')}}" })
         }
 
         $(document).ready(function() {
+            let domain_name = "{{env('DOMAIN_NAME')}}";
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
                 let sso_key = getCookies('SSO_KEY');
                 let keycloak_route = "{{ route('user.identity-server-login') }}";
                 if(sso_key != undefined){
-                    window.location.href = keycloak_route;
+                    if (domain_name) {
+                        window.location.href = keycloak_route;
+                    }
                 }
             }
 
             $('#keycloak_logout').click(function(){
-                removeCookies();
+                if (domain_name) {
+                    removeCookies();
+                }
+                
             })
         });
         // keycloak login code

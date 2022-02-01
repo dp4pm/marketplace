@@ -16,16 +16,12 @@
                 <form action="{{ route('in_house_sale_report.index') }}" method="GET">
                     <div class="form-group">
                         <label class="col-form-label fs-18">{{translate('Sort by Category')}} :</label>
-{{--                        <div class="col-md-5">--}}
                             <select id="demo-ease" class="plx-selectpicker ml-3" name="category_id" required>
                                 @foreach (\App\Models\Category::all() as $key => $category)
                                     <option value="{{ $category->id }}" @if($category->id == $sort_by) selected @endif >{{ $category->getTranslation('name') }}</option>
                                 @endforeach
                             </select>
-{{--                        </div>--}}
-{{--                        <div class="col-md-3">--}}
                             <button class="btn btn-primary ml-3" type="submit">{{ translate('Filter') }}</button>
-{{--                        </div>--}}
                     </div>
                 </form>
 

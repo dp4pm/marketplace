@@ -31,9 +31,7 @@
                         </h3>
                     </a>
                 </div>
-{{--                <div class="border-bottom pb-lg-3 pb-md-2 pb-sm-1">--}}
-{{--                    <a href="{{ route('products.category', $category->slug) }}" class="section-title-main border-bottom border-primary border-width-2 pb-3">{{  $category->getTranslation('name') }}</a>--}}
-{{--                </div>--}}
+
                 <div class="pt-lg-3 pt-md-2 pt-sm-1 pt-3">
                     <div class="row">
                     @foreach (\App\Utility\CategoryUtility::get_immediate_children_ids($category->id) as $key => $first_level_id)

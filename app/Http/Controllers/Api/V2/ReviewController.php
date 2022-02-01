@@ -20,16 +20,6 @@ class ReviewController extends Controller
         $product = Product::find($request->product_id);
         $user = User::find($request->user_id);
 
-        /*
-         @foreach ($detailedProduct->orderDetails as $key => $orderDetail)
-                                            @if($orderDetail->order != null && $orderDetail->order->user_id == Auth::user()->id && $orderDetail->delivery_status == 'delivered' && \App\Models\Review::where('user_id', Auth::user()->id)->where('product_id', $detailedProduct->id)->first() == null)
-                                                @php
-                                                    $commentable = true;
-                                                @endphp
-                                            @endif
-                                        @endforeach
-        */
-
         $reviewable = false;
 
         foreach ($product->orderDetails as $key => $orderDetail) {

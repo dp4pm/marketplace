@@ -320,9 +320,6 @@ class CheckoutController extends Controller
         Cart::where('user_id', $combined_order->user_id)
                 ->delete();
 
-        //Session::forget('club_point');
-        //Session::forget('combined_order_id');
-
         foreach($combined_order->orders as $order){
             NotificationUtility::sendOrderPlacedNotification($order);
         }

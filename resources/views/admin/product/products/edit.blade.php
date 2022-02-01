@@ -135,40 +135,7 @@
                                 </div>
                             </div>
                         </div>
-                        {{-- <div class="form-group row">
-                                                    <label class="col-lg-3 col-from-label">{{translate('Gallery Images')}}</label>
-                        <div class="col-lg-8">
-                            <div id="photos">
-                                @if(is_array(json_decode($product->photos)))
-                                @foreach (json_decode($product->photos) as $key => $photo)
-                                <div class="col-md-4 col-sm-4 col-xs-6">
-                                    <div class="img-upload-preview">
-                                        <img loading="lazy"  src="{{ uploaded_asset($photo) }}" alt="" class="img-responsive">
-                                            <input type="hidden" name="previous_photos[]" value="{{ $photo }}">
-                                            <button type="button" class="btn btn-danger close-btn remove-files"><i class="fa fa-times"></i></button>
-                                    </div>
-                                </div>
-                                @endforeach
-                                @endif
-                            </div>
-                        </div>
-                    </div> --}}
-                        {{-- <div class="form-group row">
-                            <label class="col-lg-3 col-from-label">{{translate('Thumbnail Image')}} <small>(290x300)</small></label>
-                            <div class="col-lg-8">
-                                <div id="thumbnail_img">
-                                    @if ($product->thumbnail_img != null)
-                                    <div class="col-md-4 col-sm-4 col-xs-6">
-                                        <div class="img-upload-preview">
-                                            <img loading="lazy"  src="{{ uploaded_asset($product->thumbnail_img) }}" alt="" class="img-responsive">
-                                            <input type="hidden" name="previous_thumbnail_img" value="{{ $product->thumbnail_img }}">
-                                            <button type="button" class="btn btn-danger close-btn remove-files"><i class="fa fa-times"></i></button>
-                                        </div>
-                                    </div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div> --}}
+                        
                     </div>
                 </div>
                 <div class="card">

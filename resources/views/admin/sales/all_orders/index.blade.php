@@ -23,10 +23,6 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#" onclick="bulk_delete()"> {{translate('Delete selection')}}</a>
-                    <!--                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
-                            <i class="las la-sync-alt"></i>
-                            {{translate('Change Order Status')}}
-                        </a>-->
                     </div>
                 </div>
             </div>
@@ -88,109 +84,12 @@
                 </div>
             </div>
         </div>
-{{--    <form class="" action="" id="sort_orders" method="GET">--}}
-{{--        <div class="card-header row gutters-5">--}}
-{{--            <div class="col-12">--}}
-{{--                <h5 class="mb-md-0 section-title">{{ translate('All Orders') }}</h5>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="card-header row gutters-5">--}}
-{{--            <div class="col-xxl-1 col-xl-2 col-lg-2 col-md-2 col-sm-2">--}}
-{{--                <div class="form-group mb-0">--}}
-{{--                    <button class="btn border form-control form-control-sm filter-button" type="submit">Filters</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-xxl-11 col-xl-10 col-lg-10 col-md-10 col-sm-10">--}}
-{{--                <div class="form-group mb-0">--}}
-{{--                    <input type="text" class="form-control form-control-sm filter-search-input" id="search" name="search"@isset($sort_search) value="{{ $sort_search }}" @endisset placeholder="{{ translate('Type Order code & hit Enter') }}">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="card-header row gutters-5 checked-bulk-selection-button">--}}
-{{--            <div class="col-md-1">--}}
-{{--                <a href="#" class="btn btn-action-button btn-icon btn-rounded btn-sm confirm-delete ml-2" data-toggle="tooltip" data-placement="top" title="Delete" onclick="bulk_delete()">--}}
-{{--                    <i class="las la-trash"></i>--}}
-{{--                </a>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="row gutters-5">--}}
-{{--            <div class="dropdown mb-2 mb-md-0">--}}
-{{--                <button class="btn border dropdown-toggle" type="button" data-toggle="dropdown">--}}
-{{--                    {{translate('Bulk Action')}}--}}
-{{--                </button>--}}
-{{--                <div class="dropdown-menu dropdown-menu-right">--}}
-{{--                    <a class="dropdown-item" href="#" onclick="bulk_delete()"> {{translate('Delete selection')}}</a>--}}
-{{--<!--                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">--}}
-{{--                        <i class="las la-sync-alt"></i>--}}
-{{--                        {{translate('Change Order Status')}}--}}
-{{--                    </a>-->--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <!-- Change Status Modal -->--}}
-{{--            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--                <div class="modal-dialog" role="document">--}}
-{{--                    <div class="modal-content">--}}
-{{--                        <div class="modal-header">--}}
-{{--                            <h5 class="modal-title" id="exampleModalLabel">--}}
-{{--                                {{translate('Choose an order status')}}--}}
-{{--                            </h5>--}}
-{{--                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                <span aria-hidden="true">&times;</span>--}}
-{{--                            </button>--}}
-{{--                        </div>--}}
-{{--                        <div class="modal-body">--}}
-{{--                            <select class="form-control plx-selectpicker" onchange="change_status()" data-minimum-results-for-search="Infinity" id="update_delivery_status">--}}
-{{--                                <option value="pending">{{translate('Pending')}}</option>--}}
-{{--                                <option value="confirmed">{{translate('Confirmed')}}</option>--}}
-{{--                                <option value="picked_up">{{translate('Picked Up')}}</option>--}}
-{{--                                <option value="on_the_way">{{translate('On The Way')}}</option>--}}
-{{--                                <option value="delivered">{{translate('Delivered')}}</option>--}}
-{{--                                <option value="cancelled">{{translate('Cancel')}}</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-{{--                        <div class="modal-footer">--}}
-{{--                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>--}}
-{{--                            <button type="button" class="btn btn-primary">Save changes</button>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-{{--            <div class="col-lg-2 ml-auto">--}}
-{{--                <select class="form-control plx-selectpicker" name="delivery_status" id="delivery_status">--}}
-{{--                    <option value="">{{translate('Filter by Delivery Status')}}</option>--}}
-{{--                    <option value="pending" @if ($delivery_status == 'pending') selected @endif>{{translate('Pending')}}</option>--}}
-{{--                    <option value="confirmed" @if ($delivery_status == 'confirmed') selected @endif>{{translate('Confirmed')}}</option>--}}
-{{--                    <option value="picked_up" @if ($delivery_status == 'picked_up') selected @endif>{{translate('Picked Up')}}</option>--}}
-{{--                    <option value="on_the_way" @if ($delivery_status == 'on_the_way') selected @endif>{{translate('On The Way')}}</option>--}}
-{{--                    <option value="delivered" @if ($delivery_status == 'delivered') selected @endif>{{translate('Delivered')}}</option>--}}
-{{--                    <option value="cancelled" @if ($delivery_status == 'cancelled') selected @endif>{{translate('Cancel')}}</option>--}}
-{{--                </select>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-2">--}}
-{{--                <div class="form-group mb-0">--}}
-{{--                    <input type="text" class="plx-date-range form-control" value="{{ $date }}" name="date" placeholder="{{ translate('Filter by date') }}" data-format="DD-MM-Y" data-separator=" to " data-advanced-range="true" autocomplete="off">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-lg-2">--}}
-{{--                <div class="form-group mb-0">--}}
-{{--                    <input type="text" class="form-control" id="search" name="search"@isset($sort_search) value="{{ $sort_search }}" @endisset placeholder="{{ translate('Type Order code & hit Enter') }}">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-auto">--}}
-{{--                <div class="form-group mb-0">--}}
-{{--                    <button type="submit" class="btn btn-primary">{{ translate('Filter') }}</button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
 
         <div class="card-body pt-0">
             <div class="table-responsive">
                 <table class="table plx-table mb-0">
                     <thead>
                     <tr>
-                        <!--<th>#</th>-->
                         <th>
                             <div class="form-group">
                                 <div class="plx-checkbox-inline">
@@ -216,9 +115,6 @@
                     <tbody>
                     @foreach ($orders as $key => $order)
                         <tr>
-                        <!--                    <td>
-                            {{ ($key+1) + ($orders->currentPage() - 1)*$orders->perPage() }}
-                            </td>-->
                             <td>
                                 <div class="form-group">
                                     <div class="plx-checkbox-inline">
@@ -316,26 +212,6 @@
             }
 
         });
-
-//        function change_status() {
-//            var data = new FormData($('#order_form')[0]);
-//            $.ajax({
-//                headers: {
-//                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//                },
-//                url: "{{route('bulk-order-status')}}",
-//                type: 'POST',
-//                data: data,
-//                cache: false,
-//                contentType: false,
-//                processData: false,
-//                success: function (response) {
-//                    if(response == 1) {
-//                        location.reload();
-//                    }
-//                }
-//            });
-//        }
 
         function bulk_delete() {
             var data = new FormData($('#sort_orders')[0]);

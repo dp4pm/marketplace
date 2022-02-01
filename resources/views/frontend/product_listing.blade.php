@@ -72,14 +72,12 @@
                                                 @if (\App\Models\Category::find($category_id)->parent_id != 0)
                                                     <li class="mb-2 ml-3">
                                                         <a class="text-reset fs-16 fw-600" href="{{ route('products.category', \App\Models\Category::find(\App\Models\Category::find($category_id)->parent_id)->slug) }}">
-{{--                                                            <i class="las la-angle-left"></i>--}}
                                                             {{ \App\Models\Category::find(\App\Models\Category::find($category_id)->parent_id)->getTranslation('name') }}
                                                         </a>
                                                     </li>
                                                 @endif
                                                 <li class="mb-2 ml-3">
                                                     <a class="text-reset fs-16 fw-600" href="{{ route('products.category', \App\Models\Category::find($category_id)->slug) }}">
-{{--                                                        <i class="las la-angle-left"></i>--}}
                                                         {{ \App\Models\Category::find($category_id)->getTranslation('name') }}
                                                     </a>
                                                 </li>
@@ -184,7 +182,6 @@
                                     </div>
                                 @endif
 
-                                {{-- <button type="submit" class="btn btn-styled btn-block btn-base-4">Apply filter</button> --}}
                             </div>
                         </div>
                     </div>
