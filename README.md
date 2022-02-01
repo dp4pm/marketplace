@@ -9,7 +9,26 @@
 - [Install Project using Git](#install-project-using-git)
 
 # About
-A complete solution for E-commerce Business (Multi-vendor e-commerce platform) with exclusive features.
+
+Marketplace is a fully open-source eCommerce platform that is customizable and configurable to your needs. It is completely free, adaptable and open to be supported by a worldwide community of volunteers and contributors. It’s free and open source nature allows users to maintain complete control of the data content and modify it as they wish and according to their needs. Our intended goal is to allow any potential entrepreneur to quickly get up and running with an online platform to sell goods online. 
+Some key features of Marketplace include:
+
+
+- Showcase digital and physical goods in categories, sorting by brands
+- Multi-vendor support with management tools and configuration
+- Modular product blocks allow you to customize pages in minutes.
+- Built in campaign tools to allow for promotions and sales
+- SEO configuration input simplified to boost page rank in search results
+- Admin dashboard to import and export items in bulk
+- Inventory management
+- Multi-user access
+- Ticket based support system
+- Social media integration
+- Multiple payment integration supported
+- Privacy preserving with limited or no 3rd party data tracking
+
+Our platform is open to modifications by developers by its open source nature. With this in mid, the platform is built with the best standards and practices to ensure ease with expanding the code base and making it scalable. Learn more by exploring the documentation or seeing the code in the Github repository.  
+
 
 
 # Features
