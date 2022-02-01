@@ -48,9 +48,6 @@
                         }
                     }
                     $stock = $product->stocks->where('variant', $str)->first();
-                    // if($stock != null) {
-                    //     $variation_available = true;
-                    // }
                 }
             @endphp
             @if(strlen($str) > 0)

@@ -17,7 +17,6 @@ class ProductDetailCollection extends ResourceCollection
                 $calculable_price = home_discounted_base_price($data, false);
                 $calculable_price = number_format($calculable_price, $precision, '.', '');
                 $calculable_price = floatval($calculable_price);
-                // $calculable_price = round($calculable_price, 2);
                 $photo_paths = get_images_path($data->photos);
 
                 $photos = [];
@@ -103,14 +102,12 @@ class ProductDetailCollection extends ResourceCollection
     protected function convertToChoiceOptions($data)
     {
         $result = array();
-//        if($data) {
         foreach ($data as $key => $choice) {
             $item['name'] = $choice->attribute_id;
             $item['title'] = Attribute::find($choice->attribute_id)->getTranslation('name');
             $item['options'] = $choice->values;
             array_push($result, $item);
         }
-//        }
         return $result;
     }
 

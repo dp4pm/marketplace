@@ -250,17 +250,6 @@
                         </li>
                     @endif
 
-{{--                    @if(get_setting('classified_product') == 1)--}}
-{{--                        <li class="plx-side-nav-item mr-0">--}}
-{{--                            <a href="{{ route('customer_products.index') }}" class="plx-side-nav-link {{ areActiveRoutes(['customer_products.index', 'customer_products.create', 'customer_products.edit'])}}">--}}
-{{--                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                    <path d="M7.5675 4.66868L19.9631 9.97868L15 12.1049L2.67563 6.82305C2.95313 6.53993 3.2925 6.31118 3.67875 6.16305L7.5675 4.6668V4.66868ZM10.0763 3.70305L12.9825 2.58555C14.2818 2.08607 15.7201 2.08607 17.0194 2.58555L26.3231 6.16305C26.7075 6.31305 27.0469 6.53805 27.3244 6.82305L22.3444 8.9568L10.0763 3.70305ZM28.1138 8.52555L15.9375 13.7437V27.7124C16.305 27.6506 16.6687 27.5512 17.0194 27.4162L26.3231 23.8368C26.8535 23.6326 27.3096 23.2724 27.6313 22.8038C27.9529 22.3352 28.1251 21.7802 28.125 21.2118V8.78805C28.125 8.69993 28.1213 8.6118 28.1119 8.52555H28.1138ZM14.0625 27.7124V13.7437L1.88812 8.52555C1.87968 8.6128 1.8753 8.7004 1.875 8.78805V21.2118C1.87508 21.7804 2.04749 22.3356 2.3695 22.8042C2.69151 23.2729 3.14799 23.6329 3.67875 23.8368L12.9806 27.4162C13.3331 27.5512 13.695 27.6506 14.0625 27.7124Z" fill="#3D3D3D"/>--}}
-{{--                                </svg>--}}
-{{--                                <span class="plx-side-nav-text">{{ translate('Classified Products') }}</span>--}}
-{{--                            </a>--}}
-{{--                        </li>--}}
-{{--                    @endif--}}
-
                     @if(addon_is_activated('auction'))
                         <li class="plx-side-nav-item mr-0">
                             <a href="javascript:void(0);" class="plx-side-nav-link">

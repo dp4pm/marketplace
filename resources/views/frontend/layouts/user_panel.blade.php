@@ -18,13 +18,7 @@
                                 <div class="heading-4 strong-700">
                                     @php
                                         $orderTotal = \App\Models\Order::where('seller_id', Auth::user()->id)->where("payment_status", 'paid')->where('created_at', '>=', $days_ago_30)->sum('grand_total');
-                                        //$orderDetails = \App\Models\OrderDetail::where('seller_id', Auth::user()->id)->where('created_at', '>=', $days_ago_30)->get();
-                                        //$total = 0;
-                                        //foreach ($orderDetails as $key => $orderDetail) {
-                                            //if($orderDetail->order != null && $orderDetail->order != null && $orderDetail->order->payment_status == 'paid'){
-                                                //$total += $orderDetail->price;
-                                            //}
-                                        //}
+                                        
                                     @endphp
                                     <small class="d-block sold-amount-detail mb-2">{{ translate('Your sold amount (current month)')}}</small>
                                     <span class="btn btn-primary sold-amount-count">{{ single_price($orderTotal) }}</span>

@@ -11,10 +11,6 @@
   |
  */
 
-//Route::post('/update', 'UpdateController@step0')->name('update');
-//Route::get('/update/step1', 'UpdateController@step1')->name('update.step1');
-//Route::get('/update/step2', 'UpdateController@step2')->name('update.step2');
-
 Route::get('/admin', 'AdminController@admin_dashboard')->name('admin.dashboard')->middleware(['auth', 'admin']);
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function() {
     //Update Routes
@@ -154,11 +150,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     //Subscribers
     Route::get('/subscribers', 'SubscriberController@index')->name('subscribers.index');
     Route::get('/subscribers/destroy/{id}', 'SubscriberController@destroy')->name('subscriber.destroy');
-
-    // Route::get('/orders', 'OrderController@admin_orders')->name('orders.index.admin');
-    // Route::get('/orders/{id}/show', 'OrderController@show')->name('orders.show');
-    // Route::get('/sales/{id}/show', 'OrderController@sales_show')->name('sales.show');
-    // Route::get('/sales', 'OrderController@sales')->name('sales.index');
     // All Orders
     Route::get('/all_orders', 'OrderController@all_orders')->name('all_orders.index');
     Route::get('/all_orders/{id}/show', 'OrderController@all_orders_show')->name('all_orders.show');
@@ -260,9 +251,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
     //Shipping Configuration
     Route::get('/shipping_configuration', 'BusinessSettingsController@shipping_configuration')->name('shipping_configuration.index');
     Route::post('/shipping_configuration/update', 'BusinessSettingsController@shipping_configuration_update')->name('shipping_configuration.update');
-
-    // Route::resource('pages', 'PageController');
-    // Route::get('/pages/destroy/{id}', 'PageController@destroy')->name('pages.destroy');
 
     Route::resource('countries', 'CountryController');
     Route::post('/countries/status', 'CountryController@updateStatus')->name('countries.status');

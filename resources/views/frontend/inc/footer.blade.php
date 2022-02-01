@@ -1,324 +1,3 @@
-<!--<section class="bg-white border-top mt-auto">
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-lg-3 col-md-6">
-                <a class="text-reset border-left text-center p-4 d-block" href="{{ route('terms') }}">
-                    <i class="la la-file-text la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Terms & conditions') }}</h4>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <a class="text-reset border-left text-center p-4 d-block" href="{{ route('returnpolicy') }}">
-                    <i class="la la-mail-reply la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Return Policy') }}</h4>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <a class="text-reset border-left text-center p-4 d-block" href="{{ route('supportpolicy') }}">
-                    <i class="la la-support la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Support Policy') }}</h4>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <a class="text-reset border-left border-right text-center p-4 d-block" href="{{ route('privacypolicy') }}">
-                    <i class="las la-exclamation-circle la-3x text-primary mb-2"></i>
-                    <h4 class="h6">{{ translate('Privacy Policy') }}</h4>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="bg-dark py-5 text-light footer-widget">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5 col-xl-4 text-center text-md-left">
-                <div class="mt-4">
-                    <a href="{{ route('home') }}" class="d-block">
-                        @if(get_setting('footer_logo') != null)
-    <img class="lazyload" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ uploaded_asset(get_setting('footer_logo')) }}" alt="{{ env('APP_NAME') }}" height="44">
-                        @else
-    <img class="lazyload" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}" height="44">
-                        @endif
-    </a>
-    <div class="my-3">
-{!! get_setting('about_us_description',null,App::getLocale()) !!}
-    </div>
-    <div class="d-inline-block d-md-block mb-4">
-        <form class="form-inline" method="POST" action="{{ route('subscribers.store') }}">
-                            @csrf
-    <div class="form-group mb-0">
-        <input type="email" class="form-control" placeholder="{{ translate('Your Email Address') }}" name="email" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary">
-                                {{ translate('Subscribe') }}
-    </button>
-</form>
-</div>
-<div class="w-300px mw-100 mx-auto mx-md-0">
-@if(get_setting('play_store_link') != null)
-    <a href="{{ get_setting('play_store_link') }}" target="_blank" class="d-inline-block mr-3 ml-0">
-                                <img src="{{ static_asset('assets/img/play.png') }}" class="mx-100 h-40px">
-                            </a>
-                        @endif
-@if(get_setting('app_store_link') != null)
-    <a href="{{ get_setting('app_store_link') }}" target="_blank" class="d-inline-block">
-                                <img src="{{ static_asset('assets/img/app.png') }}" class="mx-100 h-40px">
-                            </a>
-                        @endif
-    </div>
-</div>
-</div>
-<div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
-<div class="text-center text-md-left mt-4">
-    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-{{ translate('Contact Info') }}
-    </h4>
-    <ul class="list-unstyled">
-        <li class="mb-2">
-            <span class="d-block opacity-30">{{ translate('Address') }}:</span>
-                            <span class="d-block opacity-70">{{ get_setting('contact_address',null,App::getLocale()) }}</span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="d-block opacity-30">{{translate('Phone')}}:</span>
-                            <span class="d-block opacity-70">{{ get_setting('contact_phone') }}</span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="d-block opacity-30">{{translate('Email')}}:</span>
-                            <span class="d-block opacity-70">
-                               <a href="mailto:{{ get_setting('contact_email') }}" class="text-reset">{{ get_setting('contact_email')  }}</a>
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-4">
-                <div class="text-center text-md-left mt-4">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        {{ get_setting('widget_one',null,App::getLocale()) }}
-    </h4>
-    <ul class="list-unstyled">
-@if ( get_setting('widget_one_labels',null,App::getLocale()) !=  null )
-    @foreach (json_decode( get_setting('widget_one_labels',null,App::getLocale()), true) as $key => $value)
-        <li class="mb-2">
-            <a href="{{ json_decode( get_setting('widget_one_links'), true)[$key] }}" class="opacity-50 hov-opacity-100 text-reset">
-                                        {{ $value }}
-            </a>
-        </li>
-@endforeach
-@endif
-    </ul>
-</div>
-</div>
-
-<div class="col-md-4 col-lg-2">
-<div class="text-center text-md-left mt-4">
-    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-{{ translate('My Account') }}
-    </h4>
-    <ul class="list-unstyled">
-@if (Auth::check())
-    <li class="mb-2">
-        <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('logout') }}">
-                                    {{ translate('Logout') }}
-        </a>
-    </li>
-@else
-    <li class="mb-2">
-        <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('user.login') }}">
-                                    {{ translate('Login') }}
-        </a>
-    </li>
-@endif
-    <li class="mb-2">
-        <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('purchase_history.index') }}">
-                                {{ translate('Order History') }}
-    </a>
-</li>
-<li class="mb-2">
-    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('wishlists.index') }}">
-                                {{ translate('My Wishlist') }}
-    </a>
-</li>
-<li class="mb-2">
-    <a class="opacity-50 hov-opacity-100 text-reset" href="{{ route('orders.track') }}">
-                                {{ translate('Track Order') }}
-    </a>
-</li>
-@if (addon_is_activated('affiliate_system'))
-    <li class="mb-2">
-        <a class="opacity-50 hov-opacity-100 text-light" href="{{ route('affiliate.apply') }}">{{ translate('Be an affiliate partner')}}</a>
-                            </li>
-                        @endif
-    </ul>
-</div>
-@if (get_setting('vendor_system_activation') == 1)
-    <div class="text-center text-md-left mt-4">
-        <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-{{ translate('Be a Seller') }}
-        </h4>
-        <a href="{{ route('shops.create') }}" class="btn btn-primary btn-sm shadow-md">
-                            {{ translate('Apply Now') }}
-        </a>
-    </div>
-@endif
-    </div>
-</div>
-</div>
-</section>
-
-&lt;!&ndash;FOOTER&ndash;&gt;
-<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-4">
-                <div class="text-center text-md-left" current-verison="{{get_setting("current_version")}}">
-                    {!! get_setting('frontend_copyright_text',null,App::getLocale()) !!}
-                </div>
-            </div>
-            <div class="col-lg-4">
-@if ( get_setting('show_social_links') )
-    <ul class="list-inline my-3 my-md-0 social colored text-center">
-@if ( get_setting('facebook_link') !=  null )
-        <li class="list-inline-item">
-            <a href="{{ get_setting('facebook_link') }}" target="_blank" class="facebook"><i class="lab la-facebook-f"></i></a>
-                            </li>
-                        @endif
-    @if ( get_setting('twitter_link') !=  null )
-        <li class="list-inline-item">
-            <a href="{{ get_setting('twitter_link') }}" target="_blank" class="twitter"><i class="lab la-twitter"></i></a>
-                            </li>
-                        @endif
-    @if ( get_setting('instagram_link') !=  null )
-        <li class="list-inline-item">
-            <a href="{{ get_setting('instagram_link') }}" target="_blank" class="instagram"><i class="lab la-instagram"></i></a>
-                            </li>
-                        @endif
-    @if ( get_setting('youtube_link') !=  null )
-        <li class="list-inline-item">
-            <a href="{{ get_setting('youtube_link') }}" target="_blank" class="youtube"><i class="lab la-youtube"></i></a>
-                            </li>
-                        @endif
-    @if ( get_setting('linkedin_link') !=  null )
-        <li class="list-inline-item">
-            <a href="{{ get_setting('linkedin_link') }}" target="_blank" class="linkedin"><i class="lab la-linkedin-in"></i></a>
-                            </li>
-                        @endif
-        </ul>
-@endif
-    </div>
-    <div class="col-lg-4">
-        <div class="text-center text-md-right">
-            <ul class="list-inline mb-0">
-@if ( get_setting('payment_method_images') !=  null )
-    @foreach (explode(',', get_setting('payment_method_images')) as $key => $value)
-        <li class="list-inline-item">
-            <img src="{{ uploaded_asset($value) }}" height="30" class="mw-100 h-auto" style="max-height: 30px">
-                                </li>
-                            @endforeach
-@endif
-    </ul>
-</div>
-</div>
-</div>
-</div>
-</footer>
-
-
-<div class="plx-mobile-bottom-nav d-xl-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
-<div class="row align-items-center gutters-5">
-<div class="col">
-<a href="{{ route('home') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <i class="las la-home fs-20 opacity-60 {{ areActiveRoutes(['home'],'opacity-100 text-primary')}}"></i>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['home'],'opacity-100 fw-600')}}">{{ translate('Home') }}</span>
-            </a>
-        </div>
-        <div class="col">
-            <a href="{{ route('categories.all') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <i class="las la-list-ul fs-20 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 text-primary')}}"></i>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 fw-600')}}">{{ translate('Categories') }}</span>
-            </a>
-        </div>
-        @php
-    if(auth()->user() != null) {
-        $user_id = Auth::user()->id;
-        $cart = \App\Models\Cart::where('user_id', $user_id)->get();
-    } else {
-        $temp_user_id = Session()->get('temp_user_id');
-        if($temp_user_id) {
-            $cart = \App\Models\Cart::where('temp_user_id', $temp_user_id)->get();
-        }
-    }
-@endphp
-    <div class="col-auto">
-        <a href="{{ route('cart') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <span class="align-items-center bg-primary border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
-                    <i class="las la-shopping-bag la-2x text-white"></i>
-                </span>
-                <span class="d-block mt-1 fs-10 fw-600 opacity-60 {{ areActiveRoutes(['cart'],'opacity-100 fw-600')}}">
-                    {{ translate('Cart') }}
-@php
-    $count = (isset($cart) && count($cart)) ? count($cart) : 0;
-@endphp
-(<span class="cart-count">{{$count}}</span>)
-    </span>
-            </a>
-        </div>
-        <div class="col">
-            <a href="{{ route('all-notifications') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <span class="d-inline-block position-relative px-2">
-                    <i class="las la-bell fs-20 opacity-60 {{ areActiveRoutes(['all-notifications'],'opacity-100 text-primary')}}"></i>
-                    @if(Auth::check() && count(Auth::user()->unreadNotifications) > 0)
-    <span class="badge badge-sm badge-dot badge-circle badge-primary position-absolute absolute-top-right" style="right: 7px;top: -2px;"></span>
-@endif
-    </span>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['all-notifications'],'opacity-100 fw-600')}}">{{ translate('Notifications') }}</span>
-            </a>
-        </div>
-        <div class="col">
-            @if (Auth::check())
-    @if(isAdmin())
-        <a href="{{ route('admin.dashboard') }}" class="text-reset d-block text-center pb-2 pt-3">
-                    <span class="d-block mx-auto">
-                        @if(Auth::user()->photo != null)
-            <img src="{{ custom_asset(Auth::user()->avatar_original)}}" class="rounded-circle size-20px">
-                        @else
-            <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                        @endif
-            </span>
-                        <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-                    </a>
-                @else
-        <a href="javascript:void(0)" class="text-reset d-block text-center pb-2 pt-3 mobile-side-nav-thumb" data-toggle="class-toggle" data-backdrop="static" data-target=".plx-mobile-side-nav">
-<span class="d-block mx-auto">
-@if(Auth::user()->photo != null)
-            <img src="{{ custom_asset(Auth::user()->avatar_original)}}" class="rounded-circle size-20px">
-                @else
-            <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                @endif
-            </span>
-                        <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-                    </a>
-                @endif
-@else
-    <a href="{{ route('user.login') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <span class="d-block mx-auto">
-                    <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                </span>
-                    <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-                </a>
-            @endif
-    </div>
-</div>
-</div>
-@if (Auth::check() && !isAdmin())
-    <div class="plx-mobile-side-nav collapse-sidebar-wrap sidebar-xl d-xl-none z-1035">
-        <div class="overlay dark c-pointer overlay-fixed" data-toggle="class-toggle" data-backdrop="static" data-target=".plx-mobile-side-nav" data-same=".mobile-side-nav-thumb"></div>
-        <div class="collapse-sidebar bg-white">
-            @include('frontend.inc.user_side_nav')
-        </div>
-    </div>
-@endif-->
 
     @if (Auth::check() && !isAdmin())
         <div class="plx-mobile-side-nav collapse-sidebar-wrap sidebar-xl d-xl-none z-1035">
@@ -354,7 +33,6 @@
                             <path d="M40.9688 51.4062V52H43.75H46.5312V51.4062V50.8125H43.75H40.9688V51.4062Z" fill="#92278F" stroke="#92278F"/>
                             <path d="M21.2812 55.7812V56.375H33.9062H46.5312V55.7812V55.1875H33.9062H21.2812V55.7812Z" fill="#92278F" stroke="#92278F"/>
                         </svg>
-{{--                        <i class="la la-file-text la-3x text-primary mb-2"></i>--}}
                         <h4 class="conditional-area-name">{{ translate('Terms & conditions') }}</h4>
                     </a>
                 </div>
@@ -365,7 +43,6 @@
                             <path d="M15.5862 18.1289C14.6565 18.5254 13.9319 19.4687 13.7405 20.5488C13.5217 21.6699 14.1916 23.0097 15.3127 23.7207L15.8323 24.0488L15.9006 26.414C15.969 28.998 16.1604 29.9961 16.9533 31.8965C18.1428 34.7675 20.8088 37.625 23.5979 39.0195C29.1213 41.7949 35.5061 40.8925 39.9084 36.709C41.1799 35.4922 41.9592 34.4804 42.7385 33.0312C43.9553 30.7343 44.4338 28.6972 44.4338 25.7578C44.4338 24.0488 44.4475 23.9394 44.7209 23.8574C44.8713 23.8027 45.2131 23.5703 45.4729 23.3515C46.758 22.2168 46.9084 20.3164 45.801 18.9765C44.4201 17.3086 41.6584 17.6367 40.674 19.5918C39.9358 21.0957 40.4416 22.8867 41.8362 23.6797L42.383 23.9941V25.7168C42.383 28.7382 41.8088 30.8164 40.3459 33.0312C38.4865 35.8476 35.5471 37.789 32.2522 38.3632C25.6076 39.5254 19.2366 35.041 18.0608 28.3828C17.9787 27.9316 17.9104 26.7695 17.9241 25.7851V23.9941L18.5666 23.584C20.1799 22.5586 20.426 20.1797 19.0588 18.8125C18.2112 17.9648 16.6662 17.664 15.5862 18.1289Z" fill="#92278F"/>
                         </svg>
 
-                        {{--                        <i class="la la-mail-reply la-3x text-primary mb-2"></i>--}}
                         <h4 class="conditional-area-name">{{ translate('Return Policy') }}</h4>
                     </a>
                 </div>
@@ -376,7 +53,6 @@
                             <path d="M28.5194 22.4627C28.1092 22.6951 27.8495 23.0096 27.4256 23.7889C26.1815 26.1131 23.8436 27.617 21.451 27.617C20.6444 27.617 19.8788 28.0682 19.5506 28.7244C19.2635 29.2713 19.2635 29.408 19.3182 36.6131C19.3729 44.8299 19.3866 45.076 20.371 48.0018C21.4647 51.324 23.0096 53.785 25.5526 56.3416C27.9862 58.7752 30.5975 60.4295 33.6463 61.4549C34.9178 61.8924 35.1366 61.8787 36.5995 61.3729C39.5936 60.3065 42.0272 58.7479 44.4471 56.3416C47.5643 53.2108 49.4374 49.7654 50.3397 45.4315C50.6268 44.0233 50.6405 43.5858 50.6952 36.6131C50.7362 29.408 50.7362 29.2713 50.4491 28.7244C50.121 28.0682 49.3553 27.617 48.5487 27.617C46.1561 27.617 43.8182 26.1131 42.5741 23.7889C41.6444 22.0662 42.0546 22.1483 34.9999 22.1483C29.0936 22.1483 29.0526 22.1483 28.5194 22.4627ZM39.7167 27.0018C41.1796 29.1346 43.5311 30.7752 45.9784 31.3494L46.6346 31.5135L46.5799 37.6658C46.5389 42.8748 46.4842 43.9686 46.2928 44.8436C45.7596 47.1268 44.8983 49.1639 43.6405 51.0643C42.7928 52.3494 40.5233 54.619 39.1835 55.5076C37.7342 56.4783 35.6014 57.4764 34.9862 57.4764C34.3026 57.4901 31.6639 56.1365 30.201 55.0428C26.8788 52.5408 24.6913 49.1092 23.7069 44.8436C23.5155 43.9686 23.4608 42.8748 23.4198 37.6248C23.3651 31.6229 23.3651 31.4451 23.6249 31.4451C24.0624 31.4451 25.8397 30.7889 26.7147 30.2967C28.1776 29.4627 29.4628 28.2459 30.4608 26.7557L30.8026 26.2498H34.9999H39.1971L39.7167 27.0018Z" fill="#92278F"/>
                             <path d="M39.7852 36.3669C39.5254 36.5036 37.8984 38.0349 36.1621 39.7712L33.0312 42.9294L31.582 41.5075C30.4473 40.3864 30.0371 40.0583 29.6406 39.9899C28.3008 39.7439 27.207 40.6325 27.207 41.9724C27.207 42.2868 27.2891 42.697 27.3984 42.9021C27.6309 43.3396 31.8008 47.4821 32.2246 47.7009C32.5938 47.8923 33.3594 47.8923 33.8652 47.7146C34.3027 47.5505 42.3008 39.6345 42.6016 39.0739C42.7109 38.8689 42.793 38.445 42.793 38.1169C42.793 36.572 41.166 35.615 39.7852 36.3669Z" fill="#92278F"/>
                         </svg>
-{{--                        <i class="la la-support la-3x text-primary mb-2"></i>--}}
                         <h4 class="conditional-area-name">{{ translate('Support Policy') }}</h4>
                     </a>
                 </div>
@@ -393,7 +69,6 @@
                             <path d="M19.632 35.5605C19.1672 35.9297 19.1399 36.6406 19.5774 37.0508C19.8781 37.3242 19.9875 37.3242 32.1555 37.3242H44.4465L44.7746 36.9824C45.2121 36.5586 45.2121 36.0391 44.7746 35.6152L44.4465 35.2734H32.2239C20.0559 35.2734 20.0012 35.2734 19.632 35.5605Z" fill="#92278F"/>
                             <path d="M37.4609 40.291C37.0098 40.4551 36.7773 40.7969 36.7773 41.2891C36.7773 42.2324 36.8184 42.2461 40.9062 42.2461C44.5156 42.2461 44.5293 42.2461 44.8164 41.9316C45.3496 41.3711 45.1582 40.6055 44.4199 40.3457C43.9687 40.1953 37.8574 40.1406 37.4609 40.291Z" fill="#92278F"/>
                         </svg>
-{{--                        <i class="las la-exclamation-circle la-3x text-primary mb-2"></i>--}}
                         <h4 class="conditional-area-name">{{ translate('Privacy Policy') }}</h4>
                     </a>
                 </div>
@@ -456,22 +131,12 @@
                                         @if (Auth::check())
                                             <li class="contact-info-list">
                                                 <a href="{{ route('logout') }}">
-{{--                                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"--}}
-{{--                                                         viewBox="0 0 1024 1024" height="1em" width="1em"--}}
-{{--                                                         xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                        <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>--}}
-{{--                                                    </svg>--}}
                                                     {{ translate('Logout') }}
                                                 </a>
                                             </li>
                                         @else
                                             <li class="contact-info-list">
                                                 <a href="{{ route('user.login') }}">
-{{--                                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0"--}}
-{{--                                                         viewBox="0 0 1024 1024" height="1em" width="1em"--}}
-{{--                                                         xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                        <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>--}}
-{{--                                                    </svg>--}}
                                                     {{ translate('Login') }}
                                                 </a>
                                             </li>
@@ -479,33 +144,18 @@
 
                                         <li class="contact-info-list">
                                             <a class="contact-info-list" href="{{ route('purchase_history.index') }}">
-{{--                                                <svg stroke="currentColor" fill="currentColor" stroke-width="0"--}}
-{{--                                                     viewBox="0 0 1024 1024" height="1em" width="1em"--}}
-{{--                                                     xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                    <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>--}}
-{{--                                                </svg>--}}
                                                 {{ translate('Order History') }}
                                             </a>
                                         </li>
 
                                         <li class="contact-info-list">
                                             <a class="contact-info-list" href="{{ route('wishlists.index') }}">
-{{--                                                <svg stroke="currentColor" fill="currentColor" stroke-width="0"--}}
-{{--                                                     viewBox="0 0 1024 1024" height="1em" width="1em"--}}
-{{--                                                     xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                    <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>--}}
-{{--                                                </svg>--}}
                                                 {{ translate('My Wishlist') }}
                                             </a>
                                         </li>
 
                                         <li class="contact-info-list">
                                             <a class="contact-info-list" href="{{ route('orders.track') }}">
-{{--                                                <svg stroke="currentColor" fill="currentColor" stroke-width="0"--}}
-{{--                                                     viewBox="0 0 1024 1024" height="1em" width="1em"--}}
-{{--                                                     xmlns="http://www.w3.org/2000/svg">--}}
-{{--                                                    <path d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"></path>--}}
-{{--                                                </svg>--}}
                                                 {{ translate('Track Order') }}
                                             </a>
                                         </li>
@@ -621,19 +271,6 @@
                     </div>
                 </div>
 
-{{--                <div class="footer-branding justify-content-center align-items-center">--}}
-{{--                    <div class="payment-part">--}}
-{{--                        <div class="footer-part-title">Payment secured by ESCROW:</div>--}}
-{{--                        <ul class="payment-channel-area">--}}
-{{--                            <li class="payment-channel-list escrow">--}}
-{{--                                <div class="payment-channel-list-single">--}}
-{{--                                    <img class="payment-channel-list-img" src="{{ static_asset('assets/img/escrow.png') }}" alt="">--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
                 @if ( get_setting('payment_method_images') !=  null )
                 <div class="footer-branding global-section-area-bottom">
                     <div class="payment-part">
@@ -656,33 +293,11 @@
                     </div>
                 </div>
                 @endif
-
-{{--                <div class="footer-branding justify-content-around">--}}
-{{--                    <div class="logos">--}}
-{{--                        <div class="footer-logo"><span class="title">Planning and Implementation</span>--}}
-{{--                            <div class="logo">--}}
-{{--                                <img src="https://ekshop.gov.bd/static/media/footer-logos.4cc67b9f.png" alt="Footer Logos">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="footer-logo">--}}
-{{--                            <span class="title">Developed by</span>--}}
-{{--                            <a href="https://parallaxlogic.com/" rel="noopener noreferrer" target="_blank" class="logo">--}}
-{{--                                <div class="logo">--}}
-{{--                                    <img src="https://ekshop.gov.bd/static/media/plx.94738bda.png" alt="Footer Logos">--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
         <div class="footer-bottom-part-outer">
             <div class="container">
                 <div class="footer-bottom-part justify-content-center">
-{{--                    <ul class="footer-menu">--}}
-{{--                        <li><a href="https://marketplace.dpg.gov.bd/">marketplace.dpg.gov.bd</a></li>--}}
-{{--                    </ul>--}}
-
                     <div class="copyright" current-verison="{{get_setting("current_version")}}">
                         {!! get_setting('frontend_copyright_text',null,App::getLocale()) !!}
                     </div>

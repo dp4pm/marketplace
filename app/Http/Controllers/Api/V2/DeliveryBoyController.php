@@ -36,19 +36,6 @@ class DeliveryBoyController extends Controller
         $delivery_boy = DeliveryBoy::where('user_id', $id)->first();
 
 
-        //dummy
-        /*  return response()->json([
-              'completed_delivery' => 123,
-              'pending_delivery' => 0,
-              'total_collection' => format_price(154126.00),
-              'total_earning' => format_price(365.00),
-              'cancelled' => 5,
-              'on_the_way' => 123,
-              'picked' => 24,
-              'assigned' => 55,
-
-          ]);*/
-
         return response()->json([
             'completed_delivery' => Order::where('assign_delivery_boy', $id)->where('delivery_status', 'delivered')->count(),
             'pending_delivery' => Order::where('assign_delivery_boy', $id)->where('delivery_status', '!=', 'delivered')->where('delivery_status', '!=', 'cancelled')->where('cancel_request', '0')->count(),
@@ -64,9 +51,6 @@ class DeliveryBoyController extends Controller
 
     public function assigned_delivery($id)
     {
-//        $order_query = Order::query();
-//        $order_query->where('delivery_status', 'pending');
-//        $order_query->where('cancel_request', '0');
 
         $order_query = Order::query();
         $order_query->where('assign_delivery_boy', $id);
@@ -79,7 +63,6 @@ class DeliveryBoyController extends Controller
         });
 
         return new DeliveryBoyPurchaseHistoryMiniCollection($order_query->latest('delivery_history_date')->paginate(10));
-//        return new DeliveryBoyPurchaseHistoryMiniCollection($order_query->where('assign_delivery_boy', $id)->latest('delivery_history_date')->paginate(10));
     }
 
     /**

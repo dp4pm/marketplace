@@ -303,9 +303,7 @@
 
                                 <!-- Quantity + Add to cart -->
                                 <div class="d-flex mt-3 flex-wrap">
-{{--                                    <div class="col-sm-2">--}}
-{{--                                        <div class="opacity-50 my-2">{{ translate('Quantity')}}:</div>--}}
-{{--                                    </div>--}}
+
                                     <div class="price-title mr-3">
                                         <div class="product-quantity d-flex align-items-center">
                                             <div class="product-details-quantity plx-plus-minus mr-3">
@@ -313,16 +311,14 @@
                                                     <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M1 1L6 6L11 1" stroke="#92278F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
-{{--                                                    <i class="las la-arrow-up"></i>--}}
-{{--                                                    <i class="fas fa-chevron-up"></i>--}}
+
                                                 </button>
                                                 <input type="number" name="quantity" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="{{ $detailedProduct->min_qty }}" min="{{ $detailedProduct->min_qty }}" max="10">
                                                 <button class="btn plus" type="button" data-type="plus" data-field="quantity">
                                                     <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M11 6L6 1L1 6" stroke="#92278F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                                     </svg>
-{{--                                                    <i class="las la-arrow-down"></i>--}}
-{{--                                                    <i class="fas fa-chevron-down"></i>--}}
+
                                                 </button>
                                             </div>
                                             @php
@@ -341,9 +337,7 @@
                                         </div>
                                     </div>
                                     <div class="price-amount" id="chosen_price_div">
-{{--                                        <div class="col-sm-2">--}}
-{{--                                            <div class="opacity-50 my-2">{{ translate('Total Price')}}:</div>--}}
-{{--                                        </div>--}}
+
                                         <div class="d-flex justify-content-start align-items-center h-100">
                                             <div class="product-price">
                                                 <strong id="chosen_price" class="h4 fw-600 text-primary">
@@ -418,13 +412,7 @@
                             <div class="d-table width-100 mt-2">
                                 <div class="d-table-cell">
                                     <!-- Add to wishlist button -->
-{{--                                    <button type="button" class="btn pl-0 btn-link fw-600" onclick="addToWishList({{ $detailedProduct->id }})">--}}
-{{--                                        {{ translate('Add to wishlist')}}--}}
-{{--                                    </button>--}}
-{{--                                    <!-- Add to compare button -->--}}
-{{--                                    <button type="button" class="btn btn-link btn-icon-left fw-600" onclick="addToCompare({{ $detailedProduct->id }})">--}}
-{{--                                        {{ translate('Add to compare')}}--}}
-{{--                                    </button>--}}
+
                                     @if(Auth::check() && addon_is_activated('affiliate_system') && (\App\AffiliateOption::where('type', 'product_sharing')->first()->status || \App\AffiliateOption::where('type', 'category_wise_affiliate')->first()->status) && Auth::user()->affiliate_user != null && Auth::user()->affiliate_user->status)
                                         @php
                                             if(Auth::check()){
@@ -742,73 +730,7 @@
             <div class="">
                 <div class="row gutters-10">
                     <div class="col-12">
-{{--                        @if ($detailedProduct->added_by == 'seller' && $detailedProduct->user->seller != null)--}}
-{{--                            <div class="bg-white mb-3">--}}
-{{--                                <div class="position-relative p-3 text-left">--}}
-{{--                                    @if ($detailedProduct->user->seller->verification_status)--}}
-{{--                                        <div class="absolute-top-right p-2 bg-white z-1">--}}
-{{--                                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" viewBox="0 0 287.5 442.2" width="22" height="34">--}}
-{{--                                            <polygon style="fill:#F8B517;" points="223.4,442.2 143.8,376.7 64.1,442.2 64.1,215.3 223.4,215.3 "/>--}}
-{{--                                                <circle style="fill:#FBD303;" cx="143.8" cy="143.8" r="143.8"/>--}}
-{{--                                                <circle style="fill:#F8B517;" cx="143.8" cy="143.8" r="93.6"/>--}}
-{{--                                                <polygon style="fill:#FCFCFD;" points="143.8,55.9 163.4,116.6 227.5,116.6 175.6,154.3 195.6,215.3 143.8,177.7 91.9,215.3 111.9,154.3--}}
-{{--                                            60,116.6 124.1,116.6 "/>--}}
-{{--                                        </svg>--}}
-{{--                                        </div>--}}
-{{--                                    @endif--}}
-{{--                                    <div class="opacity-50 fs-12 border-bottom">{{ translate('Sold by')}}</div>--}}
-{{--                                    <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="text-reset d-block fw-600">--}}
-{{--                                        {{ $detailedProduct->user->shop->name }}--}}
-{{--                                        @if ($detailedProduct->user->seller->verification_status == 1)--}}
-{{--                                            <span class="ml-2"><i class="fa fa-check-circle" style="color:green"></i></span>--}}
-{{--                                        @else--}}
-{{--                                            <span class="ml-2"><i class="fa fa-times-circle" style="color:red"></i></span>--}}
-{{--                                        @endif--}}
-{{--                                    </a>--}}
-{{--                                    <div class="location opacity-70">{{ $detailedProduct->user->shop->address }}</div>--}}
-{{--                                    <div class="text-center border rounded p-2 mt-3">--}}
-{{--                                        <div class="rating">--}}
-{{--                                            @if ($total > 0)--}}
-{{--                                                {{ renderStarRating($detailedProduct->user->seller->rating) }}--}}
-{{--                                            @else--}}
-{{--                                                {{ renderStarRating(0) }}--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-{{--                                        <div class="opacity-60 fs-12">({{ $total }} {{ translate('customer reviews')}})</div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="row no-gutters align-items-center border-top">--}}
-{{--                                    <div class="col">--}}
-{{--                                        <a href="{{ route('shop.visit', $detailedProduct->user->shop->slug) }}" class="d-block btn btn-action-button rounded-0">{{ translate('Visit Store')}}</a>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col">--}}
-{{--                                        <ul class="social list-inline mb-0">--}}
-{{--                                            <li class="list-inline-item mr-0">--}}
-{{--                                                <a href="{{ $detailedProduct->user->shop->facebook }}" class="facebook" target="_blank">--}}
-{{--                                                    <i class="lab la-facebook-f opacity-60"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
-{{--                                            <li class="list-inline-item mr-0">--}}
-{{--                                                <a href="{{ $detailedProduct->user->shop->twitter }}" class="twitter" target="_blank">--}}
-{{--                                                    <i class="lab la-twitter opacity-60"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
-{{--                                            <li class="list-inline-item mr-0">--}}
-{{--                                                <a href="{{ $detailedProduct->user->shop->google }}" class="google" target="_blank">--}}
-{{--                                                    <i class="lab la-google opacity-60"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
 
-{{--                                            <li class="list-inline-item">--}}
-{{--                                                <a href="{{ $detailedProduct->user->shop->youtube }}" class="youtube" target="_blank">--}}
-{{--                                                    <i class="lab la-youtube opacity-60"></i>--}}
-{{--                                                </a>--}}
-{{--                                            </li>--}}
-{{--                                        </ul>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
                         <div class="bg-white">
                             <div class="d-flex align-items-baseline border-bottom pt-3">
                                 <h3 class="fw-600 mb-0 section-title border-bottom">
@@ -847,18 +769,6 @@
                                                     </div>
                                                 </div>
                                             </a>
-{{--                                                <div class="col-7 text-left">--}}
-{{--                                                    <h4 class="fs-13 text-truncate-2">--}}
-{{--                                                        <a href="{{ route('product', $top_product->slug) }}" class="d-block text-reset">{{ $top_product->getTranslation('name') }}</a>--}}
-{{--                                                    </h4>--}}
-{{--                                                    <div class="rating rating-sm mt-1">--}}
-{{--                                                        {{ renderStarRating($top_product->rating) }}--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="mt-2">--}}
-{{--                                                        <span class="fs-17 fw-600 text-primary">{{ home_discounted_base_price($top_product) }}</span>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-                                        </div>
                                     </div>
                                 @endforeach
                             </div>
@@ -1007,22 +917,6 @@
                 PLX.plugins.notify('danger', '{{ translate('Oops, unable to copy') }}');
             }
             $temp.remove();
-            // if (document.selection) {
-            //     var range = document.body.createTextRange();
-            //     range.moveToElementText(document.getElementById(containerid));
-            //     range.select().createTextRange();
-            //     document.execCommand("Copy");
-
-            // } else if (window.getSelection) {
-            //     var range = document.createRange();
-            //     document.getElementById(containerid).style.display = "block";
-            //     range.selectNode(document.getElementById(containerid));
-            //     window.getSelection().addRange(range);
-            //     document.execCommand("Copy");
-            //     document.getElementById(containerid).style.display = "none";
-
-            // }
-            // PLX.plugins.notify('success', 'Copied');
         }
         function show_chat_modal(){
             @if (Auth::check())

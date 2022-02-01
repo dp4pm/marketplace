@@ -222,16 +222,6 @@
                             <img src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}" class="mw-100 h-40 h-sm-50px h-md-60px" height="40">
                         @endif
                     </a>
-
-{{--                    @if(Route::currentRouteName() != 'home')--}}
-{{--                        <div class="d-none d-xl-block align-self-stretch category-menu-icon-box ml-auto mr-0">--}}
-{{--                            <div class="h-100 d-flex align-items-center" id="category-menu-icon">--}}
-{{--                                <div class="dropdown-toggle navbar-light bg-light h-40px w-50px pl-2 rounded border c-pointer">--}}
-{{--                                    <span class="navbar-toggler-icon"></span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endif--}}
                 </div>
                 <div class="d-lg-none mobile-header-search-custom mr-0">
                     <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
@@ -302,15 +292,6 @@
                         </div>
                     </div>
                 </div>
-
-{{--                <div class="d-sm-none ml-3 mr-0">--}}
-{{--                    <div class="nav-search-box">--}}
-{{--                        <a href="#" class="nav-box-link">--}}
-{{--                            <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
                 <div class="d-sm-block ml-2 ml-sm-3 mr-0">
                     <div class="" id="compare">
                         @include('frontend.partials.compare')
