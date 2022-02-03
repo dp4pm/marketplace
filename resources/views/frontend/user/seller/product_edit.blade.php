@@ -681,8 +681,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "POST",
-            url: '{{ route('
-            products.add - more - choice - option ') }}',
+            url: '{{ route('products.add-more-choice-option') }}',
             data: {
                 attribute_id: i
             },
@@ -741,8 +740,7 @@
     function update_sku() {
         $.ajax({
             type: "POST",
-            url: '{{ route('
-            products.sku_combination_edit ') }}',
+            url: '{{ route('products.sku_combination_edit') }}',
             data: $('#choice_form').serialize(),
             success: function (data) {
                 $('#sku_combination').html(data);
@@ -781,7 +779,7 @@
             }
         });
 
-        var str = @php echo $product - > attributes @endphp;
+        var str = @php echo $product->attributes @endphp;
 
         $.each(str, function (index, value) {
             flag = false;
