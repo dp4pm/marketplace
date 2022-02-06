@@ -321,7 +321,7 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-from-label">{{translate('Quantity')}}</label>
                             <div class="col-lg-6">
-                                <input type="number" lang="en" value="{{ $product->stocks->first()->qty }}" step="1"
+                                <input type="number" lang="en" value="{{ @$product->stocks->first()->qty }}" step="1"
                                     placeholder="{{translate('Quantity')}}" name="current_stock" class="form-control"
                                     required>
                             </div>
@@ -332,7 +332,7 @@
                             </label>
                             <div class="col-md-6">
                                 <input type="text" placeholder="{{ translate('SKU') }}"
-                                    value="{{ $product->stocks->first()->sku }}" name="sku" class="form-control">
+                                    value="{{ @$product->stocks->first()->sku }}" name="sku" class="form-control">
                             </div>
                         </div>
                     </div>
