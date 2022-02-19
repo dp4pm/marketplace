@@ -110,9 +110,8 @@ class VerificationController extends Controller
         }
         
         @$url = Session::get('route_name');
-        dd($url);
         if ($url) {
-            return redirect()->url($url);
+            return redirect()->to($url);
         } else {
             return redirect()->route('dashboard');
         }
