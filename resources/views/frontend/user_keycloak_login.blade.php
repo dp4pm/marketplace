@@ -105,9 +105,8 @@
     function initKeycloak() {
 
         keycloak.init({onLoad: 'login-required'}).then(function () {
-            constructTableRows(keycloak.idTokenParsed);
-            pasteToken(keycloak.token);
-
+            //constructTableRows(keycloak.idTokenParsed);
+            //pasteToken(keycloak.token);
             let userInfo = keycloak.idTokenParsed
             let xhttp = new XMLHttpRequest();
             xhttp.open("POST", "get-access", true);
