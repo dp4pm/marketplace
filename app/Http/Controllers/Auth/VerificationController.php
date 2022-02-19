@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\OTPVerificationController;
+use Session;
 
 class VerificationController extends Controller
 {
@@ -108,9 +109,9 @@ class VerificationController extends Controller
             flash(translate('Sorry, we could not verify you. Please try again'))->error();
         }
         
-        @$url = Session()->get('route_name');
-        if (@$url == "product") {
-            return redirect()->route($url);
+        @$url = Session::get('route_name');
+        if ($url) {
+            return redirect()->url($url);
         } else {
             return redirect()->route('dashboard');
         }

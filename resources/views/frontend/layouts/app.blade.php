@@ -277,7 +277,7 @@
 
         $(document).ready(function() {
             let route_name = "{{request()->route()->getName()}}";
-             console.log(route_name);
+            //console.log(route_name);
             let domain_name = "{{env('DOMAIN_NAME')}}";
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
@@ -288,7 +288,7 @@
                         if (route_name == 'product') {
                             let set_session = "{{Session::put('route_name', url()->full())}}";
                             let get_session = "{{Session::get('route_name')}}";
-                            alert(get_session);
+                            //alert(get_session);
                         }
                         window.location.href = keycloak_route;
                     }
