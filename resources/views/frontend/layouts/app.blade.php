@@ -293,7 +293,6 @@
                 if (domain_name) {
                     removeCookies();
                 }
-                
             })
         });
         // keycloak login code
