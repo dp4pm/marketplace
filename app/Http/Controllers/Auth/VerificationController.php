@@ -107,7 +107,7 @@ class VerificationController extends Controller
         } else {
             flash(translate('Sorry, we could not verify you. Please try again'))->error();
         }
-        //return redirect()->route('dashboard');
-        dd($referer);
+        return redirect()->route('dashboard');
+        //dd($referer);
     }
 }
