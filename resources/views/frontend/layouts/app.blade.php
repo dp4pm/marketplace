@@ -264,7 +264,7 @@
 
     <script>
 
-        var refers = "{{request()->headers->get('referer')}}";
+        
         // keycloak login code
         function getCookies(key) {
             return Cookies.get(key);
@@ -276,7 +276,7 @@
         }
 
         $(document).ready(function() {
-            console.log(`refers : ${refers}`);
+            let route_name = "{{request()->route()->getName()}}";
             let domain_name = "{{env('DOMAIN_NAME')}}";
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
@@ -291,6 +291,9 @@
 
             $('#keycloak_logout').click(function(){
                 if (domain_name) {
+                    if (route_name == 'product') {
+                        let set_session = "{{Session::put('route_name', url()->full())}}";
+                    }
                     removeCookies();
                 }
             })

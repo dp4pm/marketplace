@@ -107,8 +107,12 @@ class VerificationController extends Controller
         } else {
             flash(translate('Sorry, we could not verify you. Please try again'))->error();
         }
-        //return redirect()->route('dashboard');
-        return Redirect::intended();
-        //dd($referer);
+        
+        @$url = Session()->get('route_name');
+        if (@$url == "product") {
+            return redirect()->route($url);
+        } else {
+            return redirect()->route('dashboard');
+        }
     }
 }
