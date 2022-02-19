@@ -287,6 +287,8 @@
                     if (domain_name) {
                         if (route_name == 'product') {
                             let set_session = "{{Session::put('route_name', url()->full())}}";
+                            let get_session = "{{Session::get('route_name')}}";
+                            alert(get_session);
                         }
                         window.location.href = keycloak_route;
                     }
