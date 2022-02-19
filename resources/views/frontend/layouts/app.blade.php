@@ -276,7 +276,6 @@
         }
 
         $(document).ready(function() {
-            let route_name = "{{request()->route()->getName()}}";
             let domain_name = "{{env('DOMAIN_NAME')}}";
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
@@ -284,6 +283,11 @@
                 let keycloak_route = "{{ route('user.identity-server-login') }}";
                 if(sso_key != undefined){
                     if (domain_name) {
+                        let route_name = "{{request()->route()->getName()}}";
+                        console.log(route_name);
+                        if (route_name == 'product') {
+                            let set_session = "{{Session::put('route_name', url()->full())}}";
+                        }
                         window.location.href = keycloak_route;
                     }
                 }
@@ -291,9 +295,6 @@
 
             $('#keycloak_logout').click(function(){
                 if (domain_name) {
-                    if (route_name == 'product') {
-                        let set_session = "{{Session::put('route_name', url()->full())}}";
-                    }
                     removeCookies();
                 }
             })
