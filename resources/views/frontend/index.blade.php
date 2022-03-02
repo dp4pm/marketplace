@@ -5,9 +5,7 @@
     <div class="home-banner-area pt-3">
         <div class="container">
             <div class="row gutters-10 position-relative">
-                {{--                <div class="col-lg-3 position-static d-none d-lg-block">--}}
-                {{--                    @include('frontend.partials.category_menu')--}}
-                {{--                </div>--}}
+
 
                 @php
                     $num_todays_deal = count($todays_deal_products);
@@ -96,20 +94,7 @@
                                                                         alt="{{ $product->getTranslation('name') }}"
                                                                         onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
                                                                     >
-{{--                                                                    <div class="deals-of-the-day-time-count">--}}
-{{--                                                                        <div class="single-time">--}}
-{{--                                                                            <span>05</span>--}}
-{{--                                                                            <span>Hours</span>--}}
-{{--                                                                        </div>--}}
-{{--                                                                        <div class="single-time">--}}
-{{--                                                                            <span>05</span>--}}
-{{--                                                                            <span>Min</span>--}}
-{{--                                                                        </div>--}}
-{{--                                                                        <div class="single-time">--}}
-{{--                                                                            <span>05</span>--}}
-{{--                                                                            <span>Sec</span>--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
+
                                                                 </div>
                                                             </div>
                                                         </a>
@@ -385,9 +370,20 @@
                                                                 {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
                                                                 {{--                                                </div>--}}
                                                             </div>
+<<<<<<< HEAD
                                                         </a>
                                                     </div>
                                                 @endforeach
+=======
+                                                            <div class="top-10-text">
+                                                                <div
+                                                                    class="text-truncate-2 pl-3 fs-18 fw-600 text-left">{{ $brand->getTranslation('name') }}</div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </a>
+                                                </div>
+>>>>>>> c9efe05ec1aca1cb8aa9652b806455375e4f3baf
                                             @endif
                                         
                                     </div>
@@ -402,7 +398,6 @@
                                     <span
                                         class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Top 10 Categories') }}</span>
                                 </h3>
-                                {{--                            <a href="{{ route('categories.all') }}" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('View All Categories') }}</a>--}}
                             </div>
                             <div class="pt-lg-3 pt-md-2 pt-sm-1">
                                 <div class="single-top-10-scroll">
@@ -433,9 +428,20 @@
                                                                 {{--                                                    <i class="la la-angle-right text-primary"></i>--}}
                                                                 {{--                                                </div>--}}
                                                             </div>
+<<<<<<< HEAD
                                                         </a>
                                                     </div>
                                                 @endforeach
+=======
+                                                            <div class="top-10-text">
+                                                                <div
+                                                                    class="text-truncat-2 pl-3 fs-18 fw-600 text-left">{{ $category->getTranslation('name') }}</div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </a>
+                                                </div>
+>>>>>>> c9efe05ec1aca1cb8aa9652b806455375e4f3baf
                                             @endif
                                         
                                     </div>
@@ -458,7 +464,6 @@
                                             <h3 class="section-title-main fw-600 mb-0">
                                                 <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">{{ translate('Top 10 Selling') }}</span>
                                             </h3>
-                                            {{--                                        <a href="javascript:void(0)" class="ml-auto mr-0 btn btn-primary btn-sm shadow-md">{{ translate('Top 20') }}</a>--}}
                                         </div>
                                         <div class="pt-lg-3 pt-md-2 pt-sm-1">
                                             <div class="single-top-10-scroll">

@@ -144,26 +144,6 @@
                         </div>
                     </form>
                 </div>
-            @else
-                {{--@if(Auth::user()->point_balance > 0)
-                    <div class="mt-3">
-                        <p>
-                            {{translate('Your club point is')}}:
-                            @if(isset(Auth::user()->point_balance))
-                                {{ Auth::user()->point_balance }}
-                            @endif
-                        </p>
-                        <form class="" action="{{ route('checkout.apply_club_point') }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="point" placeholder="{{translate('Enter club point here')}}" required>
-                                <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary">{{translate('Redeem')}}</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                @endif--}}
             @endif
         @endif
 

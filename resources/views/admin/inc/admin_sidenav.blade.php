@@ -11,17 +11,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
                             <path d="M0 17.7778H14.2222V0H0V17.7778ZM0 32H14.2222V21.3333H0V32ZM17.7778 32H32V14.2222H17.7778V32ZM17.7778 0V10.6667H32V0H17.7778Z" fill="#3D3D3D" fill-opacity="0.7"/>
                         </svg>
-{{--                        <i class="fas fa-th"></i>--}}
-{{--                        <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
-{{--                            <g clip-path="url(#clip0_63_2144)">--}}
-{{--                                <path d="M5.25366 22.1729H18.8985V5.11682H5.25366V22.1729ZM5.25366 35.8177H18.8985V25.5841H5.25366V35.8177ZM22.3097 35.8177H35.9546V18.7617H22.3097V35.8177ZM22.3097 5.11682V15.3505H35.9546V5.11682H22.3097Z" fill="#92278F"/>--}}
-{{--                            </g>--}}
-{{--                            <defs>--}}
-{{--                                <clipPath id="clip0_63_2144">--}}
-{{--                                    <rect width="40.9345" height="40.9345" fill="white" transform="translate(0.136963)"/>--}}
-{{--                                </clipPath>--}}
-{{--                            </defs>--}}
-{{--                        </svg>--}}
+
                         <span class="plx-side-nav-text plx-side-nav-text-hide">{{translate('Dashboard')}}</span>
                     </a>
                 </li>
@@ -36,7 +26,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -57,7 +46,6 @@
                                 </defs>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{translate('Products')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -71,7 +59,6 @@
                             @if (env("DEMO_MODE") == "On")
                                 <span class="badge badge-inline badge-danger">Addon</span>
                             @endif
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -85,7 +72,6 @@
                             @if (env("DEMO_MODE") == "On")
                                 <span class="badge badge-inline badge-danger">Addon</span>
                             @endif
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -112,7 +98,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -128,7 +113,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -143,7 +127,6 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M16.3384 0.55835C21.6401 0.55835 25.938 4.85627 25.938 10.158C25.938 15.4598 21.6401 19.7577 16.3384 19.7577C11.0366 19.7577 6.7387 15.4598 6.7387 10.158C6.7387 4.85627 11.0366 0.55835 16.3384 0.55835ZM1.9393 35.9155C1.05567 35.9155 0.339355 35.1992 0.339355 34.3156V30.9573C0.339355 26.5391 3.92095 22.9576 8.33908 22.9576H24.3396C28.7578 22.9576 32.3394 26.5391 32.3394 30.9573V34.3156C32.3394 35.1992 31.623 35.9155 30.7394 35.9155C29.8558 35.9155 2.82292 35.9155 1.9393 35.9155Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{ translate('Customers') }}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -176,7 +159,6 @@
                                 <path d="M16.6519 19.0789V21.328H16.9642H17.2766L17.2891 19.9661L17.3078 18.6104L17.5453 19.0914C17.7577 19.5287 18.0263 20.4659 18.12 21.0906L18.1575 21.328H18.6823C19.3008 21.328 19.2696 21.378 19.1259 20.5409C18.8822 19.1726 18.4074 18.1418 17.664 17.3733C17.2704 16.9672 17.0517 16.8298 16.808 16.8298H16.6519V19.0789Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{ translate('Sellers') }}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -235,7 +217,6 @@
                                 <path d="M4.41859 10.7636C4.41859 8.7903 6.01859 7.17576 7.97415 7.17576H22.1964L29.3075 0H32.863V28.703H29.3075L22.1964 21.5273H7.97415C7.03116 21.5273 6.12679 21.1493 5.45999 20.4764C4.79319 19.8035 4.41859 18.891 4.41859 17.9394H0.863037V10.7636H4.41859ZM18.6408 26.9091V35.8788H13.3075L10.3386 26.9091H7.97415V23.3212H22.1964V26.9091H18.6408Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{ translate('Marketing') }}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -249,7 +230,6 @@
                                 <path d="M16.8627 20.8002C19.5137 20.8002 21.6627 18.6511 21.6627 16.0002C21.6627 13.3492 19.5137 11.2002 16.8627 11.2002C14.2118 11.2002 12.0627 13.3492 12.0627 16.0002C12.0627 18.6511 14.2118 20.8002 16.8627 20.8002Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{translate('Support')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -264,7 +244,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -280,7 +259,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -296,7 +274,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -312,7 +289,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -328,7 +304,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -343,7 +318,6 @@
                                 @if (env("DEMO_MODE") == "On")
                                     <span class="badge badge-inline badge-danger">Addon</span>
                                 @endif
-{{--                                <span class="plx-side-nav-arrow"></span>--}}
                             </a>
                         </li>
                     @endif
@@ -353,12 +327,10 @@
                 @if(Auth::user()->user_type == 'admin' || in_array('13', json_decode(Auth::user()->staff->role->permissions)))
                     <li class="plx-side-nav-item plx-side-nav-item-admin" id="website-setup-menu">
                         <a href="#" class="plx-side-nav-link {{ areActiveRoutes(['website.footer', 'website.header'])}}" >
-{{--                            <i class="las la-desktop plx-side-nav-icon"></i>--}}
                             <svg width="33" height="31" viewBox="0 0 33 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M18.4631 23.9564V27.1506H24.8631V30.3448H8.86309V27.1506H15.2631V23.9564H2.4503C2.2402 23.9552 2.03241 23.9126 1.83884 23.831C1.64527 23.7494 1.46974 23.6305 1.32229 23.4811C1.17484 23.3317 1.05838 23.1548 0.979583 22.9603C0.900787 22.7659 0.861204 22.5579 0.863102 22.3482V1.60828C0.863102 0.72029 1.5911 0 2.4503 0H31.2758C32.1526 0 32.863 0.717096 32.863 1.60828V22.3482C32.863 23.2362 32.135 23.9564 31.2758 23.9564H18.4631ZM22.9317 11.8622L20.0707 14.8099L19.3556 14.0731L21.5015 11.8622L19.3556 9.65125L20.0707 8.91445L22.9317 11.8622ZM12.2241 11.8622L14.3699 14.0731L13.6548 14.8099L10.7938 11.8622L13.6548 8.91445L14.3694 9.65125L12.2241 11.8622ZM15.7441 16.5518H14.6678L17.9815 7.17251H19.0577L15.7441 16.5518ZM21.638 15.1224C21.3899 15.1466 21.1475 15.2115 20.9206 15.3146L20.9203 15.3147C20.9912 15.5554 20.9337 15.8046 20.7517 15.9441C20.5697 16.0837 20.3141 16.0751 20.0998 15.9443C19.9414 16.1369 19.8158 16.3544 19.7283 16.588C19.9487 16.708 20.084 16.925 20.0541 17.1524C20.0242 17.3796 19.8374 17.5542 19.5933 17.6132C19.6175 17.8615 19.6825 18.104 19.7857 18.3311C20.0264 18.2602 20.2755 18.3178 20.4151 18.4997C20.5547 18.6817 20.5461 18.9374 20.4153 19.1517C20.6079 19.3101 20.8254 19.4356 21.059 19.5231C21.1789 19.3028 21.396 19.1675 21.6234 19.1973C21.8505 19.2273 22.0251 19.414 22.0842 19.6582C22.3324 19.634 22.575 19.569 22.8021 19.4658C22.7312 19.2251 22.7887 18.9759 22.9707 18.8363C23.1527 18.6968 23.4083 18.7054 23.6226 18.8362C23.781 18.6435 23.9065 18.4261 23.9941 18.1925C23.7737 18.0725 23.6384 17.8554 23.6683 17.6281C23.6982 17.4009 23.885 17.2263 24.1291 17.1673C24.1049 16.919 24.0399 16.6765 23.9367 16.4494C23.696 16.5202 23.4468 16.4627 23.3073 16.2807C23.1677 16.0988 23.1763 15.8431 23.3071 15.6288C23.1145 15.4704 22.897 15.3449 22.6634 15.2573C22.5435 15.4777 22.3264 15.613 22.099 15.5831C21.8719 15.5532 21.6973 15.3664 21.638 15.1224ZM21.5194 17.9822C21.3624 17.8915 21.2479 17.7423 21.201 17.5671C21.154 17.392 21.1786 17.2055 21.2693 17.0485C21.3599 16.8915 21.5092 16.7769 21.6843 16.73C21.8594 16.6831 22.046 16.7076 22.203 16.7983C22.36 16.8889 22.4745 17.0382 22.5214 17.2133C22.5683 17.3884 22.5438 17.575 22.4531 17.732C22.3625 17.889 22.2132 18.0036 22.0381 18.0505C21.863 18.0974 21.6764 18.0728 21.5194 17.9822Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide text-nowrap">{{translate('Website Setup')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -370,9 +342,7 @@
                             <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M1.07823 18.6073C0.791306 16.8809 0.791306 15.1191 1.07823 13.3927C2.84097 13.4343 4.42456 12.5897 5.04039 11.1037C5.65623 9.61612 5.13317 7.89819 3.8567 6.68411C4.8747 5.25936 6.12101 4.01251 7.54534 2.99391C8.76102 4.27036 10.479 4.79342 11.9666 4.17759C13.4542 3.56175 14.2972 1.97658 14.254 0.215456C15.9814 -0.0718187 17.7444 -0.0718187 19.4718 0.215456C19.4286 1.97818 20.2732 3.56175 21.7592 4.17759C23.2468 4.79342 24.9648 4.27036 26.1789 2.99391C27.6036 4.01189 28.8505 5.2582 29.8691 6.68251C28.5926 7.89819 28.0696 9.61612 28.6854 11.1037C29.3013 12.5913 30.8864 13.4343 32.6476 13.3911C32.9349 15.1185 32.9349 16.8815 32.6476 18.6089C30.8848 18.5657 29.3013 19.4103 28.6854 20.8963C28.0696 22.3839 28.5926 24.1018 29.8691 25.3159C28.8511 26.7406 27.6048 27.9875 26.1805 29.0061C24.9648 27.7296 23.2468 27.2066 21.7592 27.8224C20.2716 28.4382 19.4286 30.0234 19.4718 31.7845C17.7444 32.0718 15.9814 32.0718 14.254 31.7845C14.2972 30.0218 13.4526 28.4382 11.9666 27.8224C10.479 27.2066 8.76102 27.7296 7.54694 29.0061C6.12217 27.9881 4.87532 26.7418 3.8567 25.3175C5.13317 24.1018 5.65623 22.3839 5.04039 20.8963C4.42456 19.4087 2.83937 18.5657 1.07823 18.6089V18.6073ZM16.8629 20.7987C18.1356 20.7987 19.3562 20.2931 20.2561 19.3932C21.1561 18.4933 21.6617 17.2727 21.6617 16C21.6617 14.7273 21.1561 13.5067 20.2561 12.6068C19.3562 11.7069 18.1356 11.2013 16.8629 11.2013C15.5902 11.2013 14.3696 11.7069 13.4697 12.6068C12.5697 13.5067 12.0642 14.7273 12.0642 16C12.0642 17.2727 12.5697 18.4933 13.4697 19.3932C14.3696 20.2931 15.5902 20.7987 16.8629 20.7987V20.7987Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
-{{--                            <i class="las la-dharmachakra plx-side-nav-icon"></i>--}}
                             <span class="plx-side-nav-text plx-side-nav-text-hide text-nowrap">{{translate('Configurations')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -386,9 +356,7 @@
                                 <path d="M0.863037 3.54667C0.863037 1.58756 2.45059 0 4.4097 0H29.3164C31.2755 0 32.863 1.58756 32.863 3.54667V28.4533C32.863 29.394 32.4894 30.2961 31.8242 30.9612C31.1591 31.6263 30.257 32 29.3164 32H4.4097C3.46907 32 2.56696 31.6263 1.90183 30.9612C1.2367 30.2961 0.863037 29.394 0.863037 28.4533V3.54667ZM6.83104 26.6667H27.2577C26.1121 25.0194 24.5849 23.6739 22.8063 22.7452C21.0278 21.8164 19.0508 21.332 17.0444 21.3333C15.0379 21.332 13.061 21.8164 11.2824 22.7452C9.50388 23.6739 7.97659 25.0194 6.83104 26.6667V26.6667ZM16.863 17.7778C17.6802 17.7778 18.4893 17.6168 19.2442 17.3041C19.9991 16.9914 20.685 16.5331 21.2628 15.9553C21.8406 15.3775 22.2989 14.6916 22.6116 13.9367C22.9243 13.1818 23.0853 12.3727 23.0853 11.5556C23.0853 10.7384 22.9243 9.92933 22.6116 9.17441C22.2989 8.4195 21.8406 7.73357 21.2628 7.15578C20.685 6.57799 19.9991 6.11967 19.2442 5.80697C18.4893 5.49428 17.6802 5.33333 16.863 5.33333C15.2128 5.33333 13.6302 5.98889 12.4633 7.15578C11.2964 8.32267 10.6408 9.90532 10.6408 11.5556C10.6408 13.2058 11.2964 14.7884 12.4633 15.9553C13.6302 17.1222 15.2128 17.7778 16.863 17.7778V17.7778Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
 
-{{--                            <i class="las la-user-tie plx-side-nav-icon"></i>--}}
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{translate('Staffs')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -399,7 +367,6 @@
                                 <path d="M2.64081 0H31.0853C31.5568 0 32.0089 0.187301 32.3423 0.520699C32.6757 0.854097 32.863 1.30628 32.863 1.77778V14.2222H0.863037V1.77778C0.863037 1.30628 1.05034 0.854097 1.38374 0.520699C1.71713 0.187301 2.16932 0 2.64081 0V0ZM0.863037 17.7778H32.863V30.2222C32.863 30.6937 32.6757 31.1459 32.3423 31.4793C32.0089 31.8127 31.5568 32 31.0853 32H2.64081C2.16932 32 1.71713 31.8127 1.38374 31.4793C1.05034 31.1459 0.863037 30.6937 0.863037 30.2222V17.7778ZM7.97415 23.1111V26.6667H13.3075V23.1111H7.97415ZM7.97415 5.33333V8.88889H13.3075V5.33333H7.97415Z" fill="#3D3D3D" fill-opacity="0.7"/>
                             </svg>
                             <span class="plx-side-nav-text plx-side-nav-text-hide">{{translate('System')}}</span>
-{{--                            <span class="plx-side-nav-arrow"></span>--}}
                         </a>
                     </li>
                 @endif
@@ -651,18 +618,6 @@
                     <span class="plx-side-nav-text">{{ translate('Customer list') }}</span>
                 </a>
             </li>
-            {{--                            @if(get_setting('classified_product') == 1)--}}
-            {{--                                <li class="plx-side-nav-item">--}}
-            {{--                                    <a href="{{route('classified_products')}}" class="plx-side-nav-link">--}}
-            {{--                                        <span class="plx-side-nav-text">{{translate('Classified Products')}}</span>--}}
-            {{--                                    </a>--}}
-            {{--                                </li>--}}
-            {{--                                <li class="plx-side-nav-item">--}}
-            {{--                                    <a href="{{ route('customer_packages.index') }}" class="plx-side-nav-link {{ areActiveRoutes(['customer_packages.index', 'customer_packages.create', 'customer_packages.edit'])}}">--}}
-            {{--                                        <span class="plx-side-nav-text">{{ translate('Classified Packages') }}</span>--}}
-            {{--                                    </a>--}}
-            {{--                                </li>--}}
-            {{--                            @endif--}}
         </ul>
     </div>
     <div class="admin-sub-menu seller-nav-menu" id="seller-menu-sub">

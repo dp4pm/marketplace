@@ -90,13 +90,9 @@
                                     </div>
                                 </div>
                             </th>
-                            <!--<th data-breakpoints="lg">#</th>-->
                             <th>{{translate('')}}</th>
                             <th>{{translate('Name')}}</th>
                             <th>{{translate('Category')}}</th>
-                            {{--                        @if($type == 'Seller' || $type == 'All')--}}
-                            {{--                            <th data-breakpoints="lg">{{translate('Added By')}}</th>--}}
-                            {{--                        @endif--}}
                             <th data-breakpoints="sm" class="text-nowrap">{{translate('Rating ')}}
                                 <svg class="ml-1" xmlns="http://www.w3.org/2000/svg" width="11" height="15" viewBox="0 0 11 15" fill="none">
                                     <path d="M5.5 14L5.5 1M5.5 1L1 5.60788M5.5 1L10 5.60788" stroke="#92278F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -125,7 +121,6 @@
                     <tbody>
                     @foreach($products as $key => $product)
                         <tr>
-                        <!--<td>{{ ($key+1) + ($products->currentPage() - 1)*$products->perPage() }}</td>-->
                             <td>
                                 <div class="form-group d-inline-block">
                                     <label class="plx-checkbox">
@@ -148,9 +143,6 @@
                             <td>
                                 <span class="text-muted text-truncate-2">{{ $product->rating }}</span>
                             </td>
-                            {{--                        @if($type == 'Seller' || $type == 'All')--}}
-                            {{--                            <td>{{ $product->user->name }}</td>--}}
-                            {{--                        @endif--}}
                             <td>
                                 <span class="text-muted text-truncate-2">{{ single_price($product->unit_price) }}</span>
                             </td>
@@ -167,7 +159,6 @@
                                         }
                                     }
                                     else {
-                                        //$qty = $product->current_stock;
                                         $qty = optional($product->stocks->first())->qty;
                                         echo $qty;
                                     }

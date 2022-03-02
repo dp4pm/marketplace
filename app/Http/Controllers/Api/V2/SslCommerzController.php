@@ -130,12 +130,6 @@ class SslCommerzController extends Controller
             'result' => false,
             'message' => translate('Payment Failed')
         ]);
-
-        /*return response()->json([
-            'result' => false,
-            'payment_type'=> $payment_type,
-            'message' => 'Payment Successful'
-        ]);*/
     }
 
     public function payment_process(Request $request)

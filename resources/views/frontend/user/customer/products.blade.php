@@ -30,15 +30,6 @@
                     </svg>
                 </div>
             </div>
-{{--            <div class="bg-dash-item d-flex justify-content-between rounded-10 mb-4 overflow-hidden py-3">--}}
-{{--              <span class="size-30px rounded-circle mx-auto bg-soft-primary d-flex align-items-center justify-content-center mt-3">--}}
-{{--                  <i class="las la-upload la-2x text-white"></i>--}}
-{{--              </span>--}}
-{{--              <div class="px-3 pt-3 pb-3">--}}
-{{--                  <div class="h4 fw-700 text-center">{{ max(0, Auth::user()->remaining_uploads) }}</div>--}}
-{{--                  <div class="opacity-50 text-center">{{  translate('Remaining Uploads') }}</div>--}}
-{{--              </div>--}}
-{{--            </div>--}}
         </div>
 
         @php
@@ -75,16 +66,6 @@
                     </div>
                 </div>
             </a>
-{{--            <a href="{{ route('customer_packages_list_show') }}" class="text-center bg-white shadow-sm hov-shadow-lg text-center d-block p-3 rounded">--}}
-{{--                @if($customer_package != null)--}}
-{{--                    <img src="{{ uploaded_asset($customer_package->logo) }}" height="44" class="mw-100 mx-auto">--}}
-{{--                    <span class="d-block sub-title mb-2">{{ translate('Current Package')}}: {{ $customer_package->getTranslation('name') }}</span>--}}
-{{--                @else--}}
-{{--                    <i class="la la-frown-o mb-1 la-3x"></i>--}}
-{{--                    <div class="d-block sub-title mb-2">{{ translate('No Package Found')}}</div>--}}
-{{--                @endif--}}
-{{--                <div class="btn btn-outline-primary py-1">{{ translate('Upgrade Package')}}</div>--}}
-{{--            </a>--}}
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 mx-auto" >
             <a href="{{ route('customer_products.create')}}">
@@ -103,14 +84,6 @@
                     </div>
                 </div>
             </a>
-            {{--            <a href="{{ route('customer_products.create')}}">--}}
-            {{--              <div class="p-3 rounded mb-3 c-pointer text-center bg-white shadow-sm hov-shadow-lg has-transition">--}}
-            {{--                  <span class="size-60px rounded-circle mx-auto bg-secondary d-flex align-items-center justify-content-center mb-3">--}}
-            {{--                      <i class="las la-plus la-3x text-white"></i>--}}
-            {{--                  </span>--}}
-            {{--                  <div class="fs-18 text-primary">{{ translate('Add New Product') }}</div>--}}
-            {{--              </div>--}}
-            {{--            </a>--}}
         </div>
     </div>
 
@@ -155,9 +128,7 @@
                                 <a class="btn btn-action-button btn-icon btn-sm" href="{{route('customer_products.edit', ['id'=>$product->id, 'lang'=>env('DEFAULT_LANGUAGE')] )}}" title="{{ translate('Edit') }}">
                                     <i class="las la-edit"></i>
                                 </a>
-                                {{-- <a href="{{route('customer_products.edit',encrypt($product->id))}}" class="btn btn-action-button btn-icon btn-circle btn-sm" title="{{ translate('Edit') }}">
-                                  <i class="las la-edit"></i>
-                                </a> --}}
+                                
                                 <a href="javascript:void(0)" class="btn btn-action-button btn-icon btn-sm confirm-delete" data-href="{{route('customer_products.destroy', $product->id)}}" title="{{ translate('Delete') }}">
                                     <i class="las la-trash"></i>
                                 </a>

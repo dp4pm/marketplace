@@ -56,13 +56,6 @@
         }, function(data){
 
             $('#coupon_form').html(data);
-
-         //    $('#demo-dp-range .input-daterange').datepicker({
-         //        startDate: '-0d',
-         //        todayBtn: "linked",
-         //        autoclose: true,
-         //        todayHighlight: true
-        	// });
 		});
     }
 

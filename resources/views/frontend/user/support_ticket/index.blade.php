@@ -1,23 +1,6 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-{{--    <div class="plx-titlebar mt-2 mb-4">--}}
-{{--        <div class="row align-items-center">--}}
-{{--            <div class="col-md-6">--}}
-{{--                <h1 class="h4">{{ translate('Support Ticket') }}</h1>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-md-4 mx-auto mb-3" >--}}
-{{--            <div class="p-3 rounded mb-3 c-pointer text-center bg-white shadow-sm hov-shadow-lg has-transition" data-toggle="modal" data-target="#ticket_modal">--}}
-{{--                <span class="size-70px rounded-circle mx-auto bg-secondary d-flex align-items-center justify-content-center mb-3">--}}
-{{--                    <i class="las la-plus la-3x text-white"></i>--}}
-{{--                </span>--}}
-{{--                <div class="fs-20 text-primary">{{ translate('Create a Ticket') }}</div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 
     <div class="card">
         <div class="card-header py-0">

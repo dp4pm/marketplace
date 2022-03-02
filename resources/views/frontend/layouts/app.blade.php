@@ -263,6 +263,8 @@
     </script>
 
     <script>
+
+        
         // keycloak login code
         function getCookies(key) {
             return Cookies.get(key);
@@ -270,21 +272,33 @@
 
         // remove cookies step 2
         function removeCookies() {
-            Cookies.remove('SSO_KEY', {domain: 'dpg.gov.bd' })
+            Cookies.remove('SSO_KEY', {domain: "{{env('DOMAIN_NAME')}}" })
         }
 
         $(document).ready(function() {
+            let route_name = "{{request()->route()->getName()}}";
+            //console.log(route_name);
+            let domain_name = "{{env('DOMAIN_NAME')}}";
             let auth_check = "{{Auth::id()}}";
             if(!auth_check){
                 let sso_key = getCookies('SSO_KEY');
                 let keycloak_route = "{{ route('user.identity-server-login') }}";
                 if(sso_key != undefined){
-                    window.location.href = keycloak_route;
+                    if (domain_name) {
+                        if (route_name == 'product') {
+                            let set_session = "{{Session::put('route_name', url()->full())}}";
+                            let get_session = "{{Session::get('route_name')}}";
+                            //alert(get_session);
+                        }
+                        window.location.href = keycloak_route;
+                    }
                 }
             }
 
             $('#keycloak_logout').click(function(){
-                removeCookies();
+                if (domain_name) {
+                    removeCookies();
+                }
             })
         });
         // keycloak login code

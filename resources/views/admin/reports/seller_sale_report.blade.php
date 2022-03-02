@@ -14,15 +14,11 @@
                 <form action="{{ route('seller_sale_report.index') }}" method="GET">
                     <div class="form-group">
                         <label class="col-form-label fs-18">{{translate('Sort by verificarion status')}} :</label>
-{{--                        <div class="col-md-5">--}}
                             <select class="from-control plx-selectpicker ml-3" name="verification_status" required>
                                <option value="1" @if($sort_by == '1') selected @endif>{{ translate('Approved') }}</option>
                                <option value="0" @if($sort_by == '0') selected @endif>{{ translate('Non Approved') }}</option>
                             </select>
-{{--                        </div>--}}
-{{--                        <div class="col-md-2">--}}
                             <button class="btn btn-primary ml-3" type="submit">{{ translate('Filter') }}</button>
-{{--                        </div>--}}
                     </div>
                 </form>
 

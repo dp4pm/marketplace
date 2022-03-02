@@ -105,9 +105,8 @@
     function initKeycloak() {
 
         keycloak.init({onLoad: 'login-required'}).then(function () {
-            constructTableRows(keycloak.idTokenParsed);
-            pasteToken(keycloak.token);
-
+            //constructTableRows(keycloak.idTokenParsed);
+            //pasteToken(keycloak.token);
             let userInfo = keycloak.idTokenParsed
             let xhttp = new XMLHttpRequest();
             xhttp.open("POST", "get-access", true);
@@ -126,20 +125,6 @@
         }).catch(function (e) {
             alert('failed authorization');
         });
-    }
-
-    function constructTableRows(keycloakToken) {
-        // console.log(keycloakToken);
-        // document.getElementById('row-username').innerHTML = keycloakToken.preferred_username;
-        // document.getElementById('row-firstName').innerHTML = keycloakToken.given_name;
-        // document.getElementById('row-lastName').innerHTML = keycloakToken.family_name;
-        // document.getElementById('row-name').innerHTML = keycloakToken.name;
-        // document.getElementById('row-email').innerHTML = keycloakToken.email;
-    }
-
-    function pasteToken(token) {
-        // document.getElementById('ta-token').value = token;
-        // document.getElementById('ta-refreshToken').value = keycloak.refreshToken;
     }
 
     var refreshToken = function () {

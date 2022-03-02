@@ -524,17 +524,6 @@ class DemoController extends Controller
 
             }
         }
-
-        // foreach (Product::all() as $key => $product) {
-        //     if (is_array(json_decode($product->tags))) {
-        //         $tags = array();
-        //         foreach (json_decode($product->tags) as $tag) {
-        //             array_push($tags, $tag->value);
-        //         }
-        //         $product->tags = implode(',', $tags);
-        //         $product->save();
-        //     }
-        // }
     }
 
     public function insert_product_variant_forcefully(Request $request)
