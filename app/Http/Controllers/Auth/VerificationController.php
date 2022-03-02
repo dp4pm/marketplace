@@ -8,6 +8,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\OTPVerificationController;
+use Session;
 
 class VerificationController extends Controller
 {
@@ -97,6 +98,7 @@ class VerificationController extends Controller
     }
 
     public function verification_identity_server_user($code){
+        $referer = request()->headers->get('referer');
         $user = User::where('verification_code', $code)->first();
         if($user != null){
             $user->email_verified_at = Carbon::now();
@@ -106,6 +108,12 @@ class VerificationController extends Controller
         } else {
             flash(translate('Sorry, we could not verify you. Please try again'))->error();
         }
-        return redirect()->route('dashboard');
+        
+        @$url = Session::get('route_name');
+        if ($url) {
+            return redirect()->to($url);
+        } else {
+            return redirect()->route('dashboard');
+        }
     }
 }
